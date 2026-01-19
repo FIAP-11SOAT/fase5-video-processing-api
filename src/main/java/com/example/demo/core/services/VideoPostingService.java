@@ -45,7 +45,7 @@ public class VideoPostingService implements VideoPostingServicePort {
         try {
             validateFile(file);
             UUID uuid = UUID.randomUUID();
-            String key = String.format("user/%s/videos/%s", request.userId(), uuid);
+            String key = String.format("%s/%s", request.userId(), uuid);
 
             PutObjectRequest putObjectRequest = PutObjectRequest.builder()
                     .bucket(bucketName)
