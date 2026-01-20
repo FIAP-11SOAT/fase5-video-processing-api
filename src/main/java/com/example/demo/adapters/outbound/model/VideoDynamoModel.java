@@ -9,15 +9,23 @@ import java.util.UUID;
 @DynamoDbBean
 public class VideoDynamoModel {
 
+    private String videoKey;
     private UUID id;
     private String userId;
-    private String videoKey;
     private String name;
     private String status;
     private OffsetDateTime createdAt;
     private OffsetDateTime updatedAt;
 
     @DynamoDbPartitionKey
+    public String getVideoKey() {
+        return videoKey;
+    }
+
+    public void setVideoKey(String videoKey) {
+        this.videoKey = videoKey;
+    }
+
     public String getId() {
         return id != null ? id.toString() : null;
     }
@@ -32,14 +40,6 @@ public class VideoDynamoModel {
 
     public void setUserId(String userId) {
         this.userId = userId;
-    }
-
-    public String getVideoKey() {
-        return videoKey;
-    }
-
-    public void setVideoKey(String videoKey) {
-        this.videoKey = videoKey;
     }
 
     public String getName() {

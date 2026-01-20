@@ -26,11 +26,11 @@ public class VideoController {
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<Void> uploadVideo(
             @RequestPart("file") MultipartFile file,
-            @RequestPart VideoPostingBodyDto body
+            @RequestPart("file_name") String fileName
             ) throws IOException {
 
-        VideoPostingRequest request = converter.convertToVideoPostingRequest(body, "123");
-        videoPostingService.upload(file, request);
+        VideoPostingRequest request = converter.convertToVideoPostingRequest(fileName, "123", file);
+        videoPostingService.upload(request);
         return ResponseEntity.accepted().build();
     }
 }

@@ -9,6 +9,7 @@ import software.amazon.awssdk.auth.credentials.DefaultCredentialsProvider;
 import software.amazon.awssdk.auth.credentials.StaticCredentialsProvider;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
+import software.amazon.awssdk.services.s3.S3Configuration;
 
 import java.net.URI;
 
@@ -16,7 +17,7 @@ import java.net.URI;
 public class S3Config {
 
     @Bean
-    @Profile("!prod")
+    @Profile("dev")
     public S3Client s3ClientDev(
             @Value("${aws.region}") String region,
             @Value("${aws.endpoint}") String endpoint
@@ -29,11 +30,16 @@ public class S3Config {
                                 AwsBasicCredentials.create("test", "test")
                         )
                 )
+                .serviceConfiguration(
+                        S3Configuration.builder()
+                                .pathStyleAccessEnabled(true)
+                                .build()
+                )
                 .build();
     }
 
     @Bean
-    @Profile("prod")
+    @Profile("!dev")
     public S3Client s3ClientProd(
             @Value("${aws.region}") String region
     ) {

@@ -12,9 +12,9 @@ import java.util.UUID;
 @NoArgsConstructor
 public class Video {
 
+    private String videoKey;
     private UUID id;
     private String userId;
-    private String videoKey;
     private String name;
     private String status;
     private OffsetDateTime createdAt;

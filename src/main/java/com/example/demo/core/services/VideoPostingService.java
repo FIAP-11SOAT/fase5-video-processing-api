@@ -40,9 +40,10 @@ public class VideoPostingService implements VideoPostingServicePort {
     }
 
     @Override
-    public void upload(MultipartFile file, VideoPostingRequest request) throws IOException {
+    public void upload(VideoPostingRequest request) throws IOException {
 
         try {
+            MultipartFile file = request.file();
             validateFile(file);
             UUID uuid = UUID.randomUUID();
             String key = String.format("%s/%s", request.userId(), uuid);

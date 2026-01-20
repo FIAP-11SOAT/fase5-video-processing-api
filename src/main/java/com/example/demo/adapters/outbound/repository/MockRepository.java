@@ -6,6 +6,10 @@ import lombok.Setter;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
+
 @Getter
 @Setter
 @Repository
@@ -15,5 +19,15 @@ public class MockRepository implements RepositoryPort{
     @Override
     public void save(Video video) {
 
+    }
+
+    @Override
+    public Optional<Video> findById(UUID id) {
+        return Optional.empty();
+    }
+
+    @Override
+    public List<Video> findByUserId(String userId) {
+        return List.of();
     }
 }

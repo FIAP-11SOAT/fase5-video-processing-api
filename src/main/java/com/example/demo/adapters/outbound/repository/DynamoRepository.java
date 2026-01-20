@@ -18,7 +18,7 @@ import java.util.UUID;
 
 @Slf4j
 @Repository
-@Profile("prod")
+@Profile({"prod", "dev"})
 public class DynamoRepository implements RepositoryPort {
 
     private final DynamoDbTable<VideoDynamoModel> table;

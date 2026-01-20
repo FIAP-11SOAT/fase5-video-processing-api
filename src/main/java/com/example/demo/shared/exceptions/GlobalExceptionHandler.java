@@ -12,6 +12,7 @@ import org.springframework.web.multipart.MaxUploadSizeExceededException;
 import org.springframework.web.servlet.NoHandlerFoundException;
 
 import java.time.OffsetDateTime;
+import java.util.Arrays;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
@@ -121,6 +122,8 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ApiErrorResponse> handleGenericException(Exception ex) {
+        System.out.println("\n [EXCEPTION] " + ex.getMessage());
+        System.out.println("\n [STACKTRACE] " + Arrays.stream(ex.getStackTrace()).map(StackTraceElement::toString));
 
         ApiErrorResponse response = ApiErrorResponse.builder()
                 .status(HttpStatus.INTERNAL_SERVER_ERROR.value())

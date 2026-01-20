@@ -21,9 +21,9 @@ public class VideoModelMapper {
 
     public static Video toDomain(VideoDynamoModel model) {
         return new Video(
+                model.getVideoKey(),
                 UUID.fromString(model.getId()),
                 model.getUserId(),
-                model.getVideoKey(),
                 model.getName(),
                 model.getStatus(),
                 OffsetDateTime.parse(model.getCreatedAt()),
