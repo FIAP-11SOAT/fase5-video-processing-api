@@ -3,18 +3,13 @@ package com.example.demo.adapters.outbound.repository;
 import com.example.demo.adapters.converter.VideoModelMapper;
 import com.example.demo.adapters.outbound.model.VideoDynamoModel;
 import com.example.demo.core.model.Video;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
-import software.amazon.awssdk.enhanced.dynamodb.DynamoDbEnhancedClient;
-import software.amazon.awssdk.enhanced.dynamodb.DynamoDbTable;
-import software.amazon.awssdk.enhanced.dynamodb.TableSchema;
-import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
+import software.amazon.awssdk.enhanced.dynamodb.*;
+import software.amazon.awssdk.enhanced.dynamodb.model.QueryConditional;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
 
 @Slf4j
 @Repository
@@ -25,7 +20,7 @@ public class DynamoRepository implements RepositoryPort {
 
     public DynamoRepository(DynamoDbEnhancedClient enhancedClient) {
         this.table = enhancedClient.table(
-                "videos",
+                "fase5-infra-hacka-video-processing",
                 TableSchema.fromBean(VideoDynamoModel.class)
         );
     }
@@ -38,12 +33,20 @@ public class DynamoRepository implements RepositoryPort {
     }
 
     @Override
-    public Optional<Video> findById(UUID id) {
-        return Optional.empty();
-    }
-
-    @Override
     public List<Video> findByUserId(String userId) {
-        return List.of();
+
+        DynamoDbIndex<VideoDynamoModel> index =
+                table.index("userId-index");
+
+        QueryConditional query = QueryConditional
+                .keyEqualTo(Key.builder()
+                        .partitionValue(userId)
+                        .build());
+
+        return index.query(query)
+                .stream()
+                .flatMap(page -> page.items().stream().map(VideoModelMapper::toDto))
+                .toList();
+
     }
 }

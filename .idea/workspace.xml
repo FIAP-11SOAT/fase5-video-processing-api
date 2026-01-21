@@ -4,28 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="58a3b2de-2d18-4415-87aa-23116fdcd0f6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/adapters/converter/VideoControllerConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/adapters/converter/VideoControllerConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/adapters/converter/VideoModelMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/adapters/converter/VideoModelMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/adapters/dto/http/VideoPostingBodyDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/adapters/dto/http/VideoPostingBodyDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/adapters/inbound/http/VideoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/adapters/inbound/http/VideoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/adapters/outbound/model/VideoDynamoModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/adapters/outbound/model/VideoDynamoModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/adapters/outbound/model/VideoMongoModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/adapters/outbound/repository/DynamoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/adapters/outbound/repository/DynamoRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/adapters/outbound/repository/MockRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/adapters/outbound/repository/MockRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/adapters/outbound/repository/MongoRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/core/model/Video.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/core/model/Video.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/core/model/VideoPostingRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/core/model/VideoPostingRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/core/ports/VideoPostingServicePort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/core/ports/VideoPostingServicePort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/core/services/VideoPostingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/core/services/VideoPostingService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/shared/config/s3/S3Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/shared/config/s3/S3Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/shared/exceptions/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/shared/exceptions/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application-dev.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-dev.properties" afterDir="false" />
-    </list>
+    <list default="true" id="58a3b2de-2d18-4415-87aa-23116fdcd0f6" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

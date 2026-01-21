@@ -22,11 +22,6 @@ public class MockRepository implements RepositoryPort{
     }
 
     @Override
-    public Optional<Video> findById(UUID id) {
-        return Optional.empty();
-    }
-
-    @Override
     public List<Video> findByUserId(String userId) {
         return List.of();
     }

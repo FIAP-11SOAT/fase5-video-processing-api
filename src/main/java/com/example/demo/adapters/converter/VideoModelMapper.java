@@ -30,4 +30,16 @@ public class VideoModelMapper {
                 OffsetDateTime.parse(model.getUpdatedAt())
         );
     }
+
+    public static Video toDto(VideoDynamoModel model) {
+        return new Video(
+                model.getVideoKey(),
+                UUID.fromString(model.getId()),
+                model.getUserId(),
+                model.getName(),
+                model.getStatus(),
+                OffsetDateTime.parse(model.getCreatedAt()),
+                OffsetDateTime.parse(model.getUpdatedAt())
+        );
+    }
 }

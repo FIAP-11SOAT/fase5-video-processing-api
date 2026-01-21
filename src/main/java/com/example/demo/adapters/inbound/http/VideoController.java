@@ -1,7 +1,6 @@
 package com.example.demo.adapters.inbound.http;
 
 import com.example.demo.adapters.converter.VideoControllerConverter;
-import com.example.demo.adapters.dto.http.VideoPostingBodyDto;
 import com.example.demo.core.model.VideoPostingRequest;
 import com.example.demo.core.ports.VideoPostingServicePort;
 import org.springframework.http.MediaType;
