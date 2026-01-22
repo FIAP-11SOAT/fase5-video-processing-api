@@ -16,7 +16,7 @@ aws --endpoint-url=http://localhost:4566 s3 mb s3://fase5-infra-hacka-videos
 ### 3. Criar o dynamoDB
 ```bash
 aws --endpoint-url=http://localhost:4566 dynamodb create-table \
-  --table-name videos \
+  --table-name fase5-infra-hacka-video-processing \
   --attribute-definitions \
       AttributeName=videoKey,AttributeType=S \
       AttributeName=userId,AttributeType=S \
@@ -52,7 +52,7 @@ aws --endpoint-url=http://localhost:4566 s3 ls s3://fase5-infra-hacka-videos --r
 ### 6. Conferir a tabela populada
 - Troque pela video key mostrada no bucket
 ```bash
-aws --endpoint-url=http://localhost:4566 dynamodb get-item   --table-name videos   --key '{
+aws --endpoint-url=http://localhost:4566 dynamodb get-item   --table-name fase5-infra-hacka-video-processing   --key '{
 "videoKey": { "S": "123/e6fcd8ee-9f11-4459-89eb-f0c59fa1502d" }
 }'
 ```

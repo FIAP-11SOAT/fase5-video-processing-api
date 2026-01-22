@@ -1,5 +1,6 @@
 package com.example.demo.adapters.converter;
 
+import com.example.demo.adapters.dto.VideoResponseDto;
 import com.example.demo.adapters.outbound.model.VideoDynamoModel;
 import com.example.demo.core.model.Video;
 
@@ -31,15 +32,15 @@ public class VideoModelMapper {
         );
     }
 
-    public static Video toDto(VideoDynamoModel model) {
-        return new Video(
+    public static VideoResponseDto toDto(Video model) {
+        return new VideoResponseDto(
                 model.getVideoKey(),
-                UUID.fromString(model.getId()),
+                model.getId(),
                 model.getUserId(),
                 model.getName(),
                 model.getStatus(),
-                OffsetDateTime.parse(model.getCreatedAt()),
-                OffsetDateTime.parse(model.getUpdatedAt())
+                model.getCreatedAt(),
+                model.getUpdatedAt()
         );
     }
 }

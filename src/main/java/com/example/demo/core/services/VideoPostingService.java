@@ -1,5 +1,7 @@
 package com.example.demo.core.services;
 
+import com.example.demo.adapters.converter.VideoModelMapper;
+import com.example.demo.adapters.dto.VideoResponseDto;
 import com.example.demo.adapters.outbound.repository.RepositoryPort;
 import com.example.demo.core.model.Video;
 import com.example.demo.core.model.VideoPostingRequest;
@@ -16,6 +18,7 @@ import software.amazon.awssdk.services.s3.model.PutObjectRequest;
 
 import java.io.IOException;
 import java.time.OffsetDateTime;
+import java.util.List;
 import java.util.UUID;
 
 @Slf4j
@@ -65,6 +68,11 @@ public class VideoPostingService implements VideoPostingServicePort {
             log.error("[VideoPostingService]: Error save() {}", e.getMessage());
             throw e;
         }
+    }
+
+    @Override
+    public List<VideoResponseDto> getVideos(String userId) {
+        return repository.findByUserId(userId).stream().map(VideoModelMapper::toDto).toList();
     }
 
     private void validateFile(MultipartFile file){

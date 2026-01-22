@@ -45,7 +45,7 @@ public class DynamoRepository implements RepositoryPort {
 
         return index.query(query)
                 .stream()
-                .flatMap(page -> page.items().stream().map(VideoModelMapper::toDto))
+                .flatMap(page -> page.items().stream().map(VideoModelMapper::toDomain))
                 .toList();
 
     }
