@@ -4,6 +4,7 @@ import com.example.demo.adapters.converter.VideoControllerConverter;
 import com.example.demo.adapters.dto.VideoResponseDto;
 import com.example.demo.core.model.VideoPostingRequest;
 import com.example.demo.core.ports.VideoPostingServicePort;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,10 +19,16 @@ public class VideoController {
 
     private final VideoPostingServicePort videoPostingService;
     private final VideoControllerConverter converter;
+    private final String bucketName;
 
-    public VideoController(VideoPostingServicePort videoPostingService, VideoControllerConverter converter) {
+    public VideoController(
+            VideoPostingServicePort videoPostingService,
+            VideoControllerConverter converter,
+            @Value("${aws.s3.bucket.videos}") String bucketName
+    ) {
         this.videoPostingService = videoPostingService;
         this.converter = converter;
+        this.bucketName = bucketName;
     }
 
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
@@ -31,7 +38,7 @@ public class VideoController {
             ) throws IOException {
 
         VideoPostingRequest request = converter.convertToVideoPostingRequest(fileName, "123", file);
-        videoPostingService.upload(request);
+        videoPostingService.upload(request, bucketName);
         return ResponseEntity.accepted().build();
     }
 

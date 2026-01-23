@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface VideoPostingServicePort {
 
-    void upload(VideoPostingRequest request) throws IOException;
+    void upload(VideoPostingRequest request, String bucketName) throws IOException;
     List<VideoResponseDto> getVideos(String userId);
 }

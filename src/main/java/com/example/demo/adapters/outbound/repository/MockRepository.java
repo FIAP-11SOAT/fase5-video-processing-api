@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 @Getter
 @Setter
@@ -24,5 +23,10 @@ public class MockRepository implements RepositoryPort{
     @Override
     public List<Video> findByUserId(String userId) {
         return List.of();
+    }
+
+    @Override
+    public Optional<Video> findByVideoKey(String videoKey) {
+        return Optional.empty();
     }
 }

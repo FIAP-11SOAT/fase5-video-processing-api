@@ -10,6 +10,7 @@ import software.amazon.awssdk.enhanced.dynamodb.*;
 import software.amazon.awssdk.enhanced.dynamodb.model.QueryConditional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Slf4j
 @Repository
@@ -48,5 +49,18 @@ public class DynamoRepository implements RepositoryPort {
                 .flatMap(page -> page.items().stream().map(VideoModelMapper::toDomain))
                 .toList();
 
+    }
+
+    @Override
+    public Optional<Video> findByVideoKey(String videoKey) {
+
+        VideoDynamoModel item = table.getItem(
+                Key.builder()
+                        .partitionValue(videoKey)
+                        .build()
+        );
+
+        return Optional.ofNullable(item)
+                .map(VideoModelMapper::toDomain);
     }
 }

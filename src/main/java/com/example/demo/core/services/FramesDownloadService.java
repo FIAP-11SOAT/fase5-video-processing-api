@@ -1,22 +1,41 @@
 package com.example.demo.core.services;
 
+import com.example.demo.adapters.outbound.repository.RepositoryPort;
+import com.example.demo.core.model.S3File;
+import com.example.demo.core.model.Video;
+import com.example.demo.core.ports.FileStoragePort;
+import com.example.demo.core.ports.FramesDownloadServicePort;
+import com.example.demo.shared.exceptions.ErrorType;
+import com.example.demo.shared.exceptions.ExceptionUtils;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import software.amazon.awssdk.services.s3.S3Client;
+
+import java.util.Optional;
 
 @Slf4j
 @Service
-public class FramesDownloadService {
+public class FramesDownloadService implements FramesDownloadServicePort {
 
-    private final S3Client s3Client;
-    private final String bucketName;
+    private final FileStoragePort fileStorage;
+    private final RepositoryPort repository;
 
-    public FramesDownloadService(
-            S3Client s3Client,
-            @Value("${aws.s3.bucket.frames}") String bucketName
-    ) {
-        this.s3Client = s3Client;
-        this.bucketName = bucketName;
+    public FramesDownloadService(FileStoragePort fileStorage, RepositoryPort repository) {
+        this.fileStorage = fileStorage;
+        this.repository = repository;
+    }
+
+    @Override
+    public S3File downloadZip(String videoKey, String bucketName) {
+        log.info("Solicitação de download - key={}", videoKey);
+        Optional<Video> video = repository.findByVideoKey(videoKey);
+
+        if (video.isPresent()){
+            String fileName = video.get().getName();
+            S3File zip = fileStorage.downloadAsStream(bucketName, videoKey);
+            zip.setFileName(fileName);
+            return zip;
+        }
+
+        throw ExceptionUtils.badRequest(ErrorType.FILE_NOT_FOUND, new RuntimeException(ErrorType.FILE_NOT_FOUND.getMessage()));
     }
 }
