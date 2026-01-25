@@ -40,4 +40,12 @@ public class FramesController {
                 .contentLength(file.getContentLength())
                 .body(new InputStreamResource(file.getInputStream()));
     }
+
+    @GetMapping("/download-url")
+    public ResponseEntity<String> generateDownloadUrl(
+            @RequestParam String videoKey
+    ) {
+        String url = framesService.getUrl(videoKey, bucketName);
+        return ResponseEntity.ok(url);
+    }
 }

@@ -21,7 +21,7 @@ public class DynamoRepository implements RepositoryPort {
 
     public DynamoRepository(DynamoDbEnhancedClient enhancedClient) {
         this.table = enhancedClient.table(
-                "fase5-infra-hacka-video-processing",
+                "fase5-video-processing-infra-video-processing",
                 TableSchema.fromBean(VideoDynamoModel.class)
         );
     }

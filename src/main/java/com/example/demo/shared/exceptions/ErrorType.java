@@ -5,6 +5,7 @@ import lombok.Getter;
 @Getter
 public enum ErrorType {
 
+    INTERNAL_ERROR(0, "internal error", "internal error"),
     UNAUTHORIZED(1, "unauthorized request", "unauthorized request"),
     FORBIDDEN(2, "forbidden access", "forbidden access"),
     UTILITY_CLASS_ERROR(3, "", ""),

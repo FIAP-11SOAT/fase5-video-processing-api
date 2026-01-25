@@ -5,7 +5,7 @@ import com.example.demo.adapters.dto.VideoResponseDto;
 import com.example.demo.adapters.outbound.repository.RepositoryPort;
 import com.example.demo.core.model.Video;
 import com.example.demo.core.model.VideoPostingRequest;
-import com.example.demo.core.ports.FileStoragePort;
+import com.example.demo.adapters.outbound.storage.FileStoragePort;
 import com.example.demo.core.ports.VideoPostingServicePort;
 import com.example.demo.shared.exceptions.ErrorType;
 import com.example.demo.shared.exceptions.ExceptionUtils;
@@ -26,7 +26,7 @@ public class VideoPostingService implements VideoPostingServicePort {
     private final RepositoryPort repository;
     private final String STATUS_UPLOADED = "uploaded";
 
-    private static final long MAX_VIDEO_SIZE = 500L * 1024 * 1024; // 500MB
+    private static final long MAX_VIDEO_SIZE = 200L * 1024; // 500MB
 
     public VideoPostingService(FileStoragePort fileStorage, RepositoryPort repository) {
         this.fileStorage = fileStorage;
@@ -56,10 +56,6 @@ public class VideoPostingService implements VideoPostingServicePort {
     }
 
     private void validateFile(MultipartFile file){
-        if (file.isEmpty()) {
-            throw ExceptionUtils.badRequest(ErrorType.FILE_CANNOT_BE_EMPTY, new IllegalArgumentException(ErrorType.FILE_CANNOT_BE_EMPTY.getMessage()));
-        }
-
         if (file.getSize() > MAX_VIDEO_SIZE) {
             throw ExceptionUtils.badRequest(ErrorType.MAX_SIZE_EXCEEDED, new IllegalArgumentException(ErrorType.MAX_SIZE_EXCEEDED.getMessage()));
         }
