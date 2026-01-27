@@ -6,23 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="58a3b2de-2d18-4415-87aa-23116fdcd0f6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/adapters/inbound/http/FramesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/adapters/inbound/http/FramesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/adapters/outbound/repository/DynamoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/adapters/outbound/repository/DynamoRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/adapters/outbound/repository/MockRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/adapters/outbound/repository/MockRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/adapters/outbound/storage/S3FileStorageAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/adapters/outbound/storage/S3FileStorageAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/core/model/S3File.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/core/model/S3File.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/core/ports/FileStoragePort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/adapters/outbound/storage/FileStoragePort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/core/ports/FramesDownloadServicePort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/core/ports/FramesDownloadServicePort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/core/services/FramesDownloadService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/core/services/FramesDownloadService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/core/services/VideoPostingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/core/services/VideoPostingService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/shared/config/s3/S3Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/shared/config/s3/S3Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/shared/exceptions/ErrorType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/shared/exceptions/ErrorType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/shared/exceptions/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/shared/exceptions/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application-dev.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-dev.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application-prod.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-prod.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application-test.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-test.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/demo/VideoProcessingApiApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/demo/VideoProcessingApiApplicationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,8 +18,8 @@
         <option value="Enum" />
         <option value="Record" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -76,8 +59,10 @@
     "JUnit.CategoryFunctionalTest.shouldGetAllCategories.executor": "Run",
     "JUnit.CategoryServiceTest.executor": "Run",
     "JUnit.DynamoRepositoryTest.executor": "Coverage",
-    "JUnit.ExceptionUtilsTest.executor": "Run",
+    "JUnit.ExceptionUtilsTest.executor": "Coverage",
     "JUnit.ExceptionUtilsTest.shouldCreateApiExceptionWithGivenParams.executor": "Run",
+    "JUnit.FramesControllerFunctionalTest.executor": "Run",
+    "JUnit.FramesControllerFunctionalTest.shouldDownloadZipSuccessfully.executor": "Run",
     "JUnit.FramesDownloadServiceTest.executor": "Coverage",
     "JUnit.GlobalExceptionHandlerTest.executor": "Coverage",
     "JUnit.GlobalExceptionHandlerTest.shouldHandleApiException.executor": "Run",
@@ -93,9 +78,13 @@
     "JUnit.ProductFunctionalTest.shouldListAllProductsByCategory.executor": "Run",
     "JUnit.ProductServiceTest.executor": "Run",
     "JUnit.S3FileStorageAdapterTest.executor": "Run",
+    "JUnit.VideoControllerFunctionalTest.executor": "Coverage",
+    "JUnit.VideoControllerFunctionalTest.shouldReturnBadRequestWhenFileIsMissing.executor": "Run",
+    "JUnit.VideoControllerFunctionalTest.shouldReturnInternalServerErrorWhenServiceThrowsException.executor": "Run",
+    "JUnit.VideoControllerFunctionalTest.shouldUploadVideoSuccessfully.executor": "Run",
     "JUnit.VideoPostingServiceTest.executor": "Coverage",
     "JUnit.java in catalog-service.executor": "Run",
-    "JUnit.java in demo.executor": "Run",
+    "JUnit.java in demo.executor": "Coverage",
     "Makefile Target.run-dev.executor": "Run",
     "Makefile Target.run.executor": "Run",
     "Makefile Target.test.executor": "Run",
@@ -104,7 +93,7 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "git-widget-placeholder": "feature/set-up",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/amanda/Documentos/fase-05-hackaton/fase5-video-processing-infra",
+    "last_opened_file_path": "/home/amanda/Documentos/fase-04/fase4-catalog-service/pom.xml",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
@@ -136,65 +125,64 @@
       <recent name="com.example.demo.stepdefs" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.java in demo">
-    <configuration name="ExceptionUtilsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.VideoControllerConverterTest">
+    <configuration name="FramesControllerFunctionalTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="demo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.demo.shared.exceptions.*" />
+          <option name="PATTERN" value="com.example.demo.functional.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.example.demo.shared.exceptions" />
-      <option name="MAIN_CLASS_NAME" value="com.example.demo.shared.exceptions.ExceptionUtilsTest" />
+      <option name="PACKAGE_NAME" value="com.example.demo.functional" />
+      <option name="MAIN_CLASS_NAME" value="com.example.demo.functional.FramesControllerFunctionalTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ExceptionUtilsTest.shouldCreateApiExceptionWithGivenParams" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="FramesControllerFunctionalTest.shouldDownloadZipSuccessfully" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="demo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.demo.shared.exceptions.*" />
+          <option name="PATTERN" value="com.example.demo.functional.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.example.demo.shared.exceptions" />
-      <option name="MAIN_CLASS_NAME" value="com.example.demo.shared.exceptions.ExceptionUtilsTest" />
-      <option name="METHOD_NAME" value="shouldCreateApiExceptionWithGivenParams" />
+      <option name="PACKAGE_NAME" value="com.example.demo.functional" />
+      <option name="MAIN_CLASS_NAME" value="com.example.demo.functional.FramesControllerFunctionalTest" />
+      <option name="METHOD_NAME" value="shouldDownloadZipSuccessfully" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GlobalExceptionHandlerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="VideoControllerConverterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="demo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.demo.shared.exceptions.*" />
+          <option name="PATTERN" value="com.example.demo.adapters.converter.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.example.demo.shared.exceptions" />
-      <option name="MAIN_CLASS_NAME" value="com.example.demo.shared.exceptions.GlobalExceptionHandlerTest" />
+      <option name="PACKAGE_NAME" value="com.example.demo.adapters.converter" />
+      <option name="MAIN_CLASS_NAME" value="com.example.demo.adapters.converter.VideoControllerConverterTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GlobalExceptionHandlerTest.shouldHandleApiException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="VideoControllerFunctionalTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="demo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.demo.shared.exceptions.*" />
+          <option name="PATTERN" value="com.example.demo.functional.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.example.demo.shared.exceptions" />
-      <option name="MAIN_CLASS_NAME" value="com.example.demo.shared.exceptions.GlobalExceptionHandlerTest" />
-      <option name="METHOD_NAME" value="shouldHandleApiException" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="com.example.demo.functional" />
+      <option name="MAIN_CLASS_NAME" value="com.example.demo.functional.VideoControllerFunctionalTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -290,11 +278,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.VideoControllerConverterTest" />
         <item itemvalue="JUnit.java in demo" />
-        <item itemvalue="JUnit.ExceptionUtilsTest" />
-        <item itemvalue="JUnit.ExceptionUtilsTest.shouldCreateApiExceptionWithGivenParams" />
-        <item itemvalue="JUnit.GlobalExceptionHandlerTest" />
-        <item itemvalue="JUnit.GlobalExceptionHandlerTest.shouldHandleApiException" />
+        <item itemvalue="JUnit.FramesControllerFunctionalTest" />
+        <item itemvalue="JUnit.FramesControllerFunctionalTest.shouldDownloadZipSuccessfully" />
+        <item itemvalue="JUnit.VideoControllerFunctionalTest" />
       </list>
     </recent_temporary>
   </component>
@@ -317,7 +305,7 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/fase5_video_processing_api$java_in_demo.ic" NAME="java in demo Coverage Results" MODIFIED="1769373571375" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/fase5_video_processing_api$java_in_demo.ic" NAME="java in demo Coverage Results" MODIFIED="1769472563648" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/fase5_video_processing_api$VideoPostingServiceTest.ic" NAME="VideoPostingServiceTest Coverage Results" MODIFIED="1769368403629" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>com.example.demo.core.services.*</FILTER>
     </SUITE>
@@ -328,11 +316,17 @@
     <SUITE FILE_PATH="coverage/fase5_video_processing_api$FramesDownloadServiceTest.ic" NAME="FramesDownloadServiceTest Coverage Results" MODIFIED="1769368572284" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>com.example.demo.core.services.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/fase5_video_processing_api$ExceptionUtilsTest.ic" NAME="ExceptionUtilsTest Coverage Results" MODIFIED="1769374373548" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.example.demo.shared.exceptions.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/fase5_video_processing_api$MockRepositoryTest.ic" NAME="MockRepositoryTest Coverage Results" MODIFIED="1769372053475" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>com.example.demo.adapters.outbound.repository.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/fase5_video_processing_api$GlobalExceptionHandlerTest.ic" NAME="GlobalExceptionHandlerTest Coverage Results" MODIFIED="1769374132760" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>com.example.demo.shared.exceptions.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/fase5_video_processing_api$VideoControllerFunctionalTest.ic" NAME="VideoControllerFunctionalTest Coverage Results" MODIFIED="1769472550404" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.example.demo.functional.*</FILTER>
     </SUITE>
   </component>
 </project>

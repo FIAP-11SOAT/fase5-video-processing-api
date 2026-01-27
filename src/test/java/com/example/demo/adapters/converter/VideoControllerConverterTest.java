@@ -1,0 +1,39 @@
+package com.example.demo.adapters.converter;
+
+import com.example.demo.core.model.VideoPostingRequest;
+import org.junit.jupiter.api.Test;
+import org.springframework.mock.web.MockMultipartFile;
+import org.springframework.web.multipart.MultipartFile;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class VideoControllerConverterTest {
+
+    private final VideoControllerConverter converter =
+            new VideoControllerConverter();
+
+    @Test
+    void shouldConvertToVideoPostingRequestCorrectly() {
+        // given
+        String fileName = "video.mp4";
+        String userId = "user-123";
+
+        MultipartFile file = new MockMultipartFile(
+                "file",
+                "video.mp4",
+                "video/mp4",
+                "fake-content".getBytes()
+        );
+
+        // when
+        VideoPostingRequest result =
+                converter.convertToVideoPostingRequest(fileName, userId, file);
+
+        // then
+        assertNotNull(result);
+        assertEquals(fileName, result.fileName());
+        assertEquals(userId, result.userId());
+        assertEquals(file, result.file());
+    }
+
+}
