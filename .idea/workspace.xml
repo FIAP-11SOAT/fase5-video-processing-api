@@ -18,8 +18,8 @@
         <option value="Enum" />
         <option value="Record" />
         <option value="Interface" />
-        <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -44,59 +44,60 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.CatalogApplication.executor": "Run",
-    "Application.VideoProcessingApiApplication.executor": "Run",
-    "Cucumber Java.All Features in: test.executor": "Run",
-    "JUnit.All in catalog-service.executor": "Run",
-    "JUnit.All in demo.executor": "Run",
-    "JUnit.CatalogApplicationTests.contextLoads.executor": "Run",
-    "JUnit.CatalogApplicationTests.executor": "Run",
-    "JUnit.CategoryControllerTest.executor": "Run",
-    "JUnit.CategoryConverterTest.executor": "Run",
-    "JUnit.CategoryFunctionalTest.executor": "Run",
-    "JUnit.CategoryFunctionalTest.shouldGetAllCategories.executor": "Run",
-    "JUnit.CategoryServiceTest.executor": "Run",
-    "JUnit.DynamoRepositoryTest.executor": "Coverage",
-    "JUnit.ExceptionUtilsTest.executor": "Coverage",
-    "JUnit.ExceptionUtilsTest.shouldCreateApiExceptionWithGivenParams.executor": "Run",
-    "JUnit.FramesControllerFunctionalTest.executor": "Run",
-    "JUnit.FramesControllerFunctionalTest.shouldDownloadZipSuccessfully.executor": "Run",
-    "JUnit.FramesDownloadServiceTest.executor": "Coverage",
-    "JUnit.GlobalExceptionHandlerTest.executor": "Coverage",
-    "JUnit.GlobalExceptionHandlerTest.shouldHandleApiException.executor": "Run",
-    "JUnit.HealthControllerFunctionalTest.executor": "Run",
-    "JUnit.HealthControllerFunctionalTest.healthCheck.executor": "Run",
-    "JUnit.MockRepositoryTest.executor": "Coverage",
-    "JUnit.ProductControllerTest.executor": "Run",
-    "JUnit.ProductControllerTest.shouldReturnProductsFilteredByCategory.executor": "Run",
-    "JUnit.ProductConverterTest.executor": "Run",
-    "JUnit.ProductFunctionalTest.executor": "Run",
-    "JUnit.ProductFunctionalTest.shouldCreateProduct.executor": "Run",
-    "JUnit.ProductFunctionalTest.shouldListAllProducts.executor": "Run",
-    "JUnit.ProductFunctionalTest.shouldListAllProductsByCategory.executor": "Run",
-    "JUnit.ProductServiceTest.executor": "Run",
-    "JUnit.S3FileStorageAdapterTest.executor": "Run",
-    "JUnit.VideoControllerFunctionalTest.executor": "Coverage",
-    "JUnit.VideoControllerFunctionalTest.shouldReturnBadRequestWhenFileIsMissing.executor": "Run",
-    "JUnit.VideoControllerFunctionalTest.shouldReturnInternalServerErrorWhenServiceThrowsException.executor": "Run",
-    "JUnit.VideoControllerFunctionalTest.shouldUploadVideoSuccessfully.executor": "Run",
-    "JUnit.VideoPostingServiceTest.executor": "Coverage",
-    "JUnit.java in catalog-service.executor": "Run",
-    "JUnit.java in demo.executor": "Coverage",
-    "Makefile Target.run-dev.executor": "Run",
-    "Makefile Target.run.executor": "Run",
-    "Makefile Target.test.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "feature/set-up",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/amanda/Documentos/fase-04/fase4-catalog-service/pom.xml",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.CatalogApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.VideoProcessingApiApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Cucumber Java.All Features in: test.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.All in catalog-service.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.All in demo.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CatalogApplicationTests.contextLoads.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CatalogApplicationTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CategoryControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CategoryConverterTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CategoryFunctionalTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CategoryFunctionalTest.shouldGetAllCategories.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CategoryServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DynamoRepositoryTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.ExceptionUtilsTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.ExceptionUtilsTest.shouldCreateApiExceptionWithGivenParams.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.FramesControllerFunctionalTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.FramesControllerFunctionalTest.shouldDownloadZipSuccessfully.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.FramesDownloadServiceTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.GlobalExceptionHandlerTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.GlobalExceptionHandlerTest.shouldHandleApiException.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HealthControllerFunctionalTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HealthControllerFunctionalTest.healthCheck.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MockRepositoryTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.ProductControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ProductControllerTest.shouldReturnProductsFilteredByCategory.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ProductConverterTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ProductFunctionalTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ProductFunctionalTest.shouldCreateProduct.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ProductFunctionalTest.shouldListAllProducts.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ProductFunctionalTest.shouldListAllProductsByCategory.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ProductServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.S3FileStorageAdapterTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VideoControllerConverterTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VideoControllerFunctionalTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.VideoControllerFunctionalTest.shouldReturnBadRequestWhenFileIsMissing.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VideoControllerFunctionalTest.shouldReturnInternalServerErrorWhenServiceThrowsException.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VideoControllerFunctionalTest.shouldUploadVideoSuccessfully.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VideoPostingServiceTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.java in catalog-service.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.java in demo.executor&quot;: &quot;Coverage&quot;,
+    &quot;Makefile Target.run-dev.executor&quot;: &quot;Run&quot;,
+    &quot;Makefile Target.run.executor&quot;: &quot;Run&quot;,
+    &quot;Makefile Target.test.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/set-up&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/amanda/Documentos/fase-05-hackaton/fase5-video-processing-api/pom.xml&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/com/example/demo/shared" />
@@ -115,17 +116,17 @@
       <recent name="com.example.demo.adapters.inbound" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.example.demo.adapters.converter" />
       <recent name="com.example.demo.shared.exceptions" />
       <recent name="com.example.demo.adapters.outbound.storage" />
       <recent name="com.example.demo.adapters.outbound.repository" />
       <recent name="com.example.demo.core.services" />
-      <recent name="com.example.demo.adapters.inbound" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.example.demo.stepdefs" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.VideoControllerConverterTest">
+  <component name="RunManager" selected="JUnit.java in demo">
     <configuration name="FramesControllerFunctionalTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="demo" />
       <extension name="coverage">
@@ -278,8 +279,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.VideoControllerConverterTest" />
         <item itemvalue="JUnit.java in demo" />
+        <item itemvalue="JUnit.VideoControllerConverterTest" />
         <item itemvalue="JUnit.FramesControllerFunctionalTest" />
         <item itemvalue="JUnit.FramesControllerFunctionalTest.shouldDownloadZipSuccessfully" />
         <item itemvalue="JUnit.VideoControllerFunctionalTest" />
@@ -305,7 +306,7 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/fase5_video_processing_api$java_in_demo.ic" NAME="java in demo Coverage Results" MODIFIED="1769472563648" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/fase5_video_processing_api$java_in_demo.ic" NAME="java in demo Coverage Results" MODIFIED="1769472968919" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/fase5_video_processing_api$VideoPostingServiceTest.ic" NAME="VideoPostingServiceTest Coverage Results" MODIFIED="1769368403629" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>com.example.demo.core.services.*</FILTER>
     </SUITE>
