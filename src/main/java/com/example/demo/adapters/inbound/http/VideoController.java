@@ -7,6 +7,8 @@ import com.example.demo.core.ports.VideoPostingServicePort;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -34,17 +36,27 @@ public class VideoController {
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<Void> uploadVideo(
             @RequestPart("file") MultipartFile file,
-            @RequestPart("file_name") String fileName
+            @RequestPart("file_name") String fileName,
+            @AuthenticationPrincipal Jwt jwt
             ) throws IOException {
 
-        VideoPostingRequest request = converter.convertToVideoPostingRequest(fileName, "123", file);
+        String userId = jwt.getClaims().get("sub").toString();
+        String customerName = jwt.getClaims().get("username").toString();
+
+        VideoPostingRequest request = converter.convertToVideoPostingRequest(fileName, userId, file);
         videoPostingService.upload(request, bucketName);
         return ResponseEntity.accepted().build();
     }
 
     @GetMapping()
-    public ResponseEntity<List<VideoResponseDto>> getVideos(){
-        List<VideoResponseDto> videos =  videoPostingService.getVideos("123");
+    public ResponseEntity<List<VideoResponseDto>> getVideos(
+            @AuthenticationPrincipal Jwt jwt
+    ){
+
+        String userId = jwt.getClaims().get("sub").toString();
+        String customerName = jwt.getClaims().get("user_id").toString();
+
+        List<VideoResponseDto> videos =  videoPostingService.getVideos(userId);
         return ResponseEntity.ok(videos);
     }
 }

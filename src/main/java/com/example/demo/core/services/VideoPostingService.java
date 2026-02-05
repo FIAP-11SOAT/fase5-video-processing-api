@@ -2,6 +2,8 @@ package com.example.demo.core.services;
 
 import com.example.demo.adapters.converter.VideoModelMapper;
 import com.example.demo.adapters.dto.VideoResponseDto;
+import com.example.demo.adapters.outbound.model.NotificationPayload;
+import com.example.demo.adapters.outbound.notification_queue.NotificationPort;
 import com.example.demo.adapters.outbound.repository.RepositoryPort;
 import com.example.demo.core.model.Video;
 import com.example.demo.core.model.VideoPostingRequest;
@@ -24,13 +26,15 @@ public class VideoPostingService implements VideoPostingServicePort {
 
     private final FileStoragePort fileStorage;
     private final RepositoryPort repository;
+    private final NotificationPort notificationService;
     private final String STATUS_UPLOADED = "uploaded";
 
-    private static final long MAX_VIDEO_SIZE = 200L * 1024; // 500MB
+    private static final long MAX_VIDEO_SIZE = 500L * 1024 * 1024; // 500MB
 
-    public VideoPostingService(FileStoragePort fileStorage, RepositoryPort repository) {
+    public VideoPostingService(FileStoragePort fileStorage, RepositoryPort repository, NotificationPort notificationService) {
         this.fileStorage = fileStorage;
         this.repository = repository;
+        this.notificationService = notificationService;
     }
 
     @Override
@@ -44,6 +48,7 @@ public class VideoPostingService implements VideoPostingServicePort {
             fileStorage.uploadFile(file, key, bucketName);
             Video video = buildVideo(key, uuid, request);
             repository.save(video);
+            sendNotification(request, key);
         } catch (Exception e){
             log.error("[VideoPostingService]: Error upload() {}", e.getMessage());
             throw e;
@@ -76,5 +81,10 @@ public class VideoPostingService implements VideoPostingServicePort {
         video.setUpdatedAt(OffsetDateTime.now());
 
         return video;
+    }
+
+    private void sendNotification(VideoPostingRequest video, String videoKey){
+        NotificationPayload message = new NotificationPayload(videoKey, video.fileName(), video.userId(), STATUS_UPLOADED);
+        notificationService.send(message);
     }
 }

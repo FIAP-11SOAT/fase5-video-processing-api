@@ -4,6 +4,7 @@ import com.example.demo.adapters.converter.VideoModelMapper;
 import com.example.demo.adapters.outbound.model.VideoDynamoModel;
 import com.example.demo.core.model.Video;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 import software.amazon.awssdk.enhanced.dynamodb.*;
@@ -19,9 +20,12 @@ public class DynamoRepository implements RepositoryPort {
 
     private final DynamoDbTable<VideoDynamoModel> table;
 
-    public DynamoRepository(DynamoDbEnhancedClient enhancedClient) {
+    public DynamoRepository(
+            DynamoDbEnhancedClient enhancedClient,
+            @Value("${aws.dynamo.table.videos}") String tableName
+    ) {
         this.table = enhancedClient.table(
-                "fase5-video-processing-infra-video-processing",
+                tableName,
                 TableSchema.fromBean(VideoDynamoModel.class)
         );
     }

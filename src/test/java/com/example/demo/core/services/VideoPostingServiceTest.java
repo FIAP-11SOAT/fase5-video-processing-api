@@ -1,6 +1,7 @@
 package com.example.demo.core.services;
 
 import com.example.demo.adapters.dto.VideoResponseDto;
+import com.example.demo.adapters.outbound.notification_queue.NotificationPort;
 import com.example.demo.adapters.outbound.repository.RepositoryPort;
 import com.example.demo.adapters.outbound.storage.FileStoragePort;
 import com.example.demo.core.model.Video;
@@ -28,6 +29,9 @@ class VideoPostingServiceTest {
 
     @Mock
     private RepositoryPort repository;
+
+    @Mock
+    private NotificationPort notificationService;
 
     @InjectMocks
     private VideoPostingService service;
@@ -65,7 +69,7 @@ class VideoPostingServiceTest {
     @Test
     void shouldThrowExceptionWhenFileSizeExceedsLimit() throws IOException {
         // arrange
-        byte[] bigFile = new byte[(int) (201L * 1024)];
+        byte[] bigFile = new byte[(int) (501 * 1024L * 1024)];
 
         MockMultipartFile file = new MockMultipartFile(
                 "file",

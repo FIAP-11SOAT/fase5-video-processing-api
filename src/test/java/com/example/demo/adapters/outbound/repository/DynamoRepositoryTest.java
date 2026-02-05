@@ -10,6 +10,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockedStatic;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.annotation.Value;
 import software.amazon.awssdk.core.pagination.sync.SdkIterable;
 import software.amazon.awssdk.enhanced.dynamodb.*;
 import software.amazon.awssdk.enhanced.dynamodb.model.Page;
@@ -45,7 +46,7 @@ class DynamoRepositoryTest {
                 any(TableSchema.class)
         )).thenReturn(table);
 
-        repository = new DynamoRepository(enhancedClient);
+        repository = new DynamoRepository(enhancedClient, "fase5-video-processing");
     }
 
     @Test

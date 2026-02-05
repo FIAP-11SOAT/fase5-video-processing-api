@@ -7,6 +7,8 @@ import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -30,7 +32,8 @@ public class FramesController {
 
     @GetMapping("/download")
     public ResponseEntity<InputStreamResource> downloadZip(
-            @RequestParam String videoKey
+            @RequestParam String videoKey,
+            @AuthenticationPrincipal Jwt jwt
     ) {
         S3File file = framesService.downloadZip(videoKey, bucketName);
         return ResponseEntity.ok()
@@ -43,7 +46,8 @@ public class FramesController {
 
     @GetMapping("/download-url")
     public ResponseEntity<String> generateDownloadUrl(
-            @RequestParam String videoKey
+            @RequestParam String videoKey,
+            @AuthenticationPrincipal Jwt jwt
     ) {
         String url = framesService.getUrl(videoKey, bucketName);
         return ResponseEntity.ok(url);
