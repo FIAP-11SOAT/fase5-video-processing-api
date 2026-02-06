@@ -9,4 +9,5 @@ public interface RepositoryPort {
     void save(Video video);
     List<Video> findByUserId(String userId);
     Optional<Video> findByVideoKey(String videoKey);
+    Optional<Video> findById(String id);
 }

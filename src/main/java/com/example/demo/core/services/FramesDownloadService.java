@@ -25,11 +25,9 @@ public class FramesDownloadService implements FramesDownloadServicePort {
     }
 
     @Override
-    public S3File downloadZip(String videoKey, String bucketName) {
-        log.info("Solicitação de download - key={}", videoKey);
-        // Remove .zip se existir para buscar no DynamoDB
-        String dynamoKey = videoKey.replaceFirst("\\.zip$", "");
-        Optional<Video> video = repository.findByVideoKey(dynamoKey);
+    public S3File downloadZip(String videoId, String bucketName) {
+        log.info("Solicitação de download - id={}", videoId);
+        Optional<Video> video = repository.findById(videoId);
 
         if (video.isPresent()){
             String fileName = video.get().getName();
@@ -44,11 +42,9 @@ public class FramesDownloadService implements FramesDownloadServicePort {
     }
 
     @Override
-    public String getUrl(String videoKey, String bucketName) {
-        log.info("Solicitação de URL download - key={}", videoKey);
-        // Remove .zip se existir para buscar no DynamoDB
-        String dynamoKey = videoKey.replaceFirst("\\.zip$", "");
-        Optional<Video> video = repository.findByVideoKey(dynamoKey);
+    public String getUrl(String videoId, String bucketName) {
+        log.info("Solicitação de URL download - id={}", videoId);
+        Optional<Video> video = repository.findById(videoId);
 
         if (video.isPresent()){
             // No S3, os frames processados têm extensão .zip

@@ -31,12 +31,12 @@ public class FramesController {
 
     }
 
-    @GetMapping("/{videoKey}/download")
+    @GetMapping("/{videoId}/download")
     public ResponseEntity<InputStreamResource> downloadZip(
-            @PathVariable String videoKey,
+            @PathVariable String videoId,
             @AuthenticationPrincipal Jwt jwt
     ) {
-        S3File file = framesService.downloadZip(videoKey, bucketName);
+        S3File file = framesService.downloadZip(videoId, bucketName);
         return ResponseEntity.ok()
                 .header(HttpHeaders.CONTENT_DISPOSITION,
                         "attachment; filename=\"" + file.getFileName() + "\"")
@@ -47,10 +47,19 @@ public class FramesController {
 
     @GetMapping("/download-url")
     public ResponseEntity<String> generateDownloadUrl(
-            @RequestParam String videoKey,
+            @RequestParam String videoId,
             @AuthenticationPrincipal Jwt jwt
     ) {
-        String url = framesService.getUrl(videoKey, bucketName);
+        String url = framesService.getUrl(videoId, bucketName);
+        return ResponseEntity.ok(url);
+    }
+
+    @GetMapping("/{videoId}/download-url")
+    public ResponseEntity<String> generateDownloadUrl2(
+            @PathVariable String videoId,
+            @AuthenticationPrincipal Jwt jwt
+    ) {
+        String url = framesService.getUrl(videoId, bucketName);
         return ResponseEntity.ok(url);
     }
 }

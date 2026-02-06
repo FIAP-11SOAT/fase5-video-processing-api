@@ -40,6 +40,14 @@ public class MockRepository implements RepositoryPort {
                 .map(this::clone);
     }
 
+    @Override
+    public Optional<Video> findById(String id) {
+        return table.values().stream()
+                .filter(video -> id.equals(video.getId()))
+                .findFirst()
+                .map(this::clone);
+    }
+
     private Video clone(Video source) {
         Video v = new Video();
         v.setId(source.getId());

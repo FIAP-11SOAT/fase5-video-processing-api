@@ -89,4 +89,36 @@ public class DynamoRepository implements RepositoryPort {
             throw e;
         }
     }
+
+    @Override
+    public Optional<Video> findById(String id) {
+        log.info("[DynamoRepository] Buscando vídeo por id={}", id);
+        
+        try {
+            // Usando scan com filtro pois não temos userId para query direta
+            ScanEnhancedRequest scanRequest = ScanEnhancedRequest.builder()
+                    .filterExpression(
+                            Expression.builder()
+                                    .expression("id = :id")
+                                    .expressionValues(Map.of(
+                                            ":id", AttributeValue.builder().s(id).build()
+                                    ))
+                                    .build()
+                    )
+                    .build();
+            
+            VideoDynamoModel item = table.scan(scanRequest)
+                    .items()
+                    .stream()
+                    .findFirst()
+                    .orElse(null);
+            
+            log.info("[DynamoRepository] Resultado da busca por id: {}", item != null ? "encontrado" : "não encontrado");
+            return Optional.ofNullable(item)
+                    .map(VideoModelMapper::toDomain);
+        } catch (Exception e) {
+            log.error("[DynamoRepository] Erro ao buscar id={}: {}", id, e.getMessage(), e);
+            throw e;
+        }
+    }
 }
