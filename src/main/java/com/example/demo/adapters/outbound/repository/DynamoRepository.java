@@ -9,8 +9,11 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 import software.amazon.awssdk.enhanced.dynamodb.*;
 import software.amazon.awssdk.enhanced.dynamodb.model.QueryConditional;
+import software.amazon.awssdk.enhanced.dynamodb.model.ScanEnhancedRequest;
+import software.amazon.awssdk.services.dynamodb.model.AttributeValue;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Slf4j
@@ -57,12 +60,33 @@ public class DynamoRepository implements RepositoryPort {
 
     @Override
     public Optional<Video> findByVideoKey(String videoKey) {
-
-        VideoDynamoModel item = table.getItem(r ->
-                r.key(k -> k.partitionValue(videoKey))
-        );
-
-        return Optional.ofNullable(item)
-                .map(VideoModelMapper::toDomain);
+        log.info("[DynamoRepository] Buscando vídeo por videoKey={}", videoKey);
+        
+        try {
+            // Usando scan com filtro pois não há GSI para videoKey
+            ScanEnhancedRequest scanRequest = ScanEnhancedRequest.builder()
+                    .filterExpression(
+                            Expression.builder()
+                                    .expression("videoKey = :videoKey")
+                                    .expressionValues(Map.of(
+                                            ":videoKey", AttributeValue.builder().s(videoKey).build()
+                                    ))
+                                    .build()
+                    )
+                    .build();
+            
+            VideoDynamoModel item = table.scan(scanRequest)
+                    .items()
+                    .stream()
+                    .findFirst()
+                    .orElse(null);
+            
+            log.info("[DynamoRepository] Resultado da busca: {}", item != null ? "encontrado" : "não encontrado");
+            return Optional.ofNullable(item)
+                    .map(VideoModelMapper::toDomain);
+        } catch (Exception e) {
+            log.error("[DynamoRepository] Erro ao buscar videoKey={}: {}", videoKey, e.getMessage(), e);
+            throw e;
+        }
     }
 }

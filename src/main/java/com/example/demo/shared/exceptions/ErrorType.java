@@ -12,7 +12,8 @@ public enum ErrorType {
     MAX_SIZE_EXCEEDED(4, "file is too large","file max size exceeded"),
     FILE_CANNOT_BE_EMPTY(5, "empty file", "file can not be empty"),
     FILE_FORMAT_INVALID(6, "invalid file format", "file format is invalid"),
-    FILE_NOT_FOUND(7, "file not found", "file not found");
+    FILE_NOT_FOUND(7, "file not found", "file not found"),
+    VIDEO_NOT_FOUND(8, "video not found", "video not found");
 
     private final int code;
     private final String name;

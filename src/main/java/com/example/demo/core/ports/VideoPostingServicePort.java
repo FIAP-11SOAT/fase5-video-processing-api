@@ -10,4 +10,5 @@ public interface VideoPostingServicePort {
 
     void upload(VideoPostingRequest request, String bucketName) throws IOException;
     List<VideoResponseDto> getVideos(String userId);
+    VideoResponseDto getVideoByVideoKey(String videoKey);
 }

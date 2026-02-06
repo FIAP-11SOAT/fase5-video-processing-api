@@ -60,6 +60,16 @@ public class VideoPostingService implements VideoPostingServicePort {
         return repository.findByUserId(userId).stream().map(VideoModelMapper::toDto).toList();
     }
 
+    @Override
+    public VideoResponseDto getVideoByVideoKey(String videoKey) {
+        Video video = repository.findByVideoKey(videoKey)
+                .orElseThrow(() -> ExceptionUtils.notFound(
+                        ErrorType.VIDEO_NOT_FOUND,
+                        new IllegalArgumentException("Video not found with key: " + videoKey)
+                ));
+        return VideoModelMapper.toDto(video);
+    }
+
     private void validateFile(MultipartFile file){
         if (file.getSize() > MAX_VIDEO_SIZE) {
             throw ExceptionUtils.badRequest(ErrorType.MAX_SIZE_EXCEEDED, new IllegalArgumentException(ErrorType.MAX_SIZE_EXCEEDED.getMessage()));

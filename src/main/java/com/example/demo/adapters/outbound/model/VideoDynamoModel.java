@@ -2,29 +2,30 @@ package com.example.demo.adapters.outbound.model;
 
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbBean;
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbPartitionKey;
+import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbSortKey;
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbSecondaryPartitionKey;
 
 @DynamoDbBean
 public class VideoDynamoModel {
 
-    private String videoKey;
     private String id;
-    private String userId;
     private String name;
     private String status;
+    private String videoKey;
+    private String userId;
     private String createdAt;
     private String updatedAt;
 
     @DynamoDbPartitionKey
-    public String getVideoKey() {
-        return videoKey;
+    public String getId() {
+        return id;
     }
 
-    public void setVideoKey(String videoKey) {
-        this.videoKey = videoKey;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    @DynamoDbSecondaryPartitionKey(indexNames = "userId-index")
+    @DynamoDbSortKey
     public String getUserId() {
         return userId;
     }
@@ -33,12 +34,12 @@ public class VideoDynamoModel {
         this.userId = userId;
     }
 
-    public String getId() {
-        return id;
+    public String getVideoKey() {
+        return videoKey;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setVideoKey(String videoKey) {
+        this.videoKey = videoKey;
     }
 
     public String getName() {

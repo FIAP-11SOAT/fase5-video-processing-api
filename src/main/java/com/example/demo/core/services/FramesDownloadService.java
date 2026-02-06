@@ -27,12 +27,15 @@ public class FramesDownloadService implements FramesDownloadServicePort {
     @Override
     public S3File downloadZip(String videoKey, String bucketName) {
         log.info("Solicitação de download - key={}", videoKey);
-        String key = videoKey.replaceFirst("\\.zip$", "");
-        Optional<Video> video = repository.findByVideoKey(key);
+        // Remove .zip se existir para buscar no DynamoDB
+        String dynamoKey = videoKey.replaceFirst("\\.zip$", "");
+        Optional<Video> video = repository.findByVideoKey(dynamoKey);
 
         if (video.isPresent()){
             String fileName = video.get().getName();
-            S3File zip = fileStorage.downloadAsStream(bucketName, videoKey);
+            // No S3, os frames processados têm extensão .zip
+            String s3Key = video.get().getVideoKey() + ".zip";
+            S3File zip = fileStorage.downloadAsStream(bucketName, s3Key);
             zip.setFileName(fileName);
             return zip;
         }
@@ -43,12 +46,14 @@ public class FramesDownloadService implements FramesDownloadServicePort {
     @Override
     public String getUrl(String videoKey, String bucketName) {
         log.info("Solicitação de URL download - key={}", videoKey);
-        String key = videoKey.replaceFirst("\\.zip$", "");
-        System.out.println("key: " + key);
-        Optional<Video> video = repository.findByVideoKey(key);
+        // Remove .zip se existir para buscar no DynamoDB
+        String dynamoKey = videoKey.replaceFirst("\\.zip$", "");
+        Optional<Video> video = repository.findByVideoKey(dynamoKey);
 
         if (video.isPresent()){
-            return fileStorage.generatePresignedUrl(videoKey, bucketName);
+            // No S3, os frames processados têm extensão .zip
+            String s3Key = video.get().getVideoKey() + ".zip";
+            return fileStorage.generatePresignedUrl(s3Key, bucketName);
         }
 
         throw ExceptionUtils.badRequest(ErrorType.FILE_NOT_FOUND, new RuntimeException(ErrorType.FILE_NOT_FOUND.getMessage()));

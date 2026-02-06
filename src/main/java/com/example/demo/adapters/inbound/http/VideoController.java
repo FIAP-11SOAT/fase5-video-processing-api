@@ -43,12 +43,11 @@ public class VideoController {
         String userId;
         String userName;
 
-        System.out.println(jwt.getClaims());
-
         if (jwt == null){
             userId = "123";
             userName = "user";
         } else {
+            System.out.println(jwt.getClaims());
             userId = jwt.getClaims().get("sub").toString();
             userName = jwt.getClaims().get("username").toString();
         }
@@ -64,16 +63,22 @@ public class VideoController {
     ){
 
         String userId;
-        String userName;
 
         if (jwt == null){
             userId = "123";
-            userName = "user";
         } else {
             userId = jwt.getClaims().get("sub").toString();
-            userName = jwt.getClaims().get("username").toString();
         }
         List<VideoResponseDto> videos =  videoPostingService.getVideos(userId);
         return ResponseEntity.ok(videos);
+    }
+
+    @GetMapping("/{videoKey}")
+    public ResponseEntity<VideoResponseDto> getVideoByKey(
+            @PathVariable String videoKey,
+            @AuthenticationPrincipal Jwt jwt
+    ) {
+        VideoResponseDto video = videoPostingService.getVideoByVideoKey(videoKey);
+        return ResponseEntity.ok(video);
     }
 }

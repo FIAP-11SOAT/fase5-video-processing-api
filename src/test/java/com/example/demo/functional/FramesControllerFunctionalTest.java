@@ -49,8 +49,7 @@ class FramesControllerFunctionalTest {
         when(framesService.downloadZip("videoKey.zip", bucketName))
                 .thenReturn(s3File);
 
-        mockMvc.perform(get("/videos/download")
-                        .param("videoKey", "videoKey.zip"))
+        mockMvc.perform(get("/videos/videoKey.zip/download"))
                 .andExpect(status().isOk())
                 .andExpect(header().string(
                         HttpHeaders.CONTENT_DISPOSITION,
@@ -68,34 +67,7 @@ class FramesControllerFunctionalTest {
                         new RuntimeException("not found")
                 ));
 
-        mockMvc.perform(get("/videos/download")
-                        .param("videoKey", "invalid.zip"))
-                .andExpect(status().isBadRequest());
-    }
-
-    @Test
-    void shouldGenerateDownloadUrlSuccessfully() throws Exception {
-        String url = "https://s3.amazonaws.com/bucket/videoKey.zip";
-
-        when(framesService.getUrl("videoKey.zip", bucketName))
-                .thenReturn(url);
-
-        mockMvc.perform(get("/videos/download-url")
-                        .param("videoKey", "videoKey.zip"))
-                .andExpect(status().isOk())
-                .andExpect(content().string(url));
-    }
-
-    @Test
-    void shouldReturnBadRequestWhenGeneratingUrlForInvalidKey() throws Exception {
-        when(framesService.getUrl("invalid.zip", bucketName))
-                .thenThrow(ExceptionUtils.badRequest(
-                        ErrorType.FILE_NOT_FOUND,
-                        new RuntimeException("not found")
-                ));
-
-        mockMvc.perform(get("/videos/download-url")
-                        .param("videoKey", "invalid.zip"))
+        mockMvc.perform(get("/videos/invalid.zip/download"))
                 .andExpect(status().isBadRequest());
     }
 }
