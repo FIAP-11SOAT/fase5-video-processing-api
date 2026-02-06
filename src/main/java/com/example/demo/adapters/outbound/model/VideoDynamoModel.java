@@ -2,7 +2,6 @@ package com.example.demo.adapters.outbound.model;
 
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbBean;
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbPartitionKey;
-import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbSortKey;
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbSecondaryPartitionKey;
 
 @DynamoDbBean
@@ -25,7 +24,7 @@ public class VideoDynamoModel {
         this.id = id;
     }
 
-    @DynamoDbSortKey
+    @DynamoDbSecondaryPartitionKey(indexNames = "userId-index")
     public String getUserId() {
         return userId;
     }
