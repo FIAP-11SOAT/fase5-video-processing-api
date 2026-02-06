@@ -4,19 +4,16 @@ import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbBean;
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbPartitionKey;
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbSecondaryPartitionKey;
 
-import java.time.OffsetDateTime;
-import java.util.UUID;
-
 @DynamoDbBean
 public class VideoDynamoModel {
 
     private String videoKey;
-    private UUID id;
+    private String id;
     private String userId;
     private String name;
     private String status;
-    private OffsetDateTime createdAt;
-    private OffsetDateTime updatedAt;
+    private String createdAt;
+    private String updatedAt;
 
     @DynamoDbPartitionKey
     public String getVideoKey() {
@@ -37,11 +34,11 @@ public class VideoDynamoModel {
     }
 
     public String getId() {
-        return id != null ? id.toString() : null;
+        return id;
     }
 
     public void setId(String id) {
-        this.id = UUID.fromString(id);
+        this.id = id;
     }
 
     public String getName() {
@@ -61,18 +58,19 @@ public class VideoDynamoModel {
     }
 
     public String getCreatedAt() {
-        return createdAt != null ? createdAt.toString() : null;
+        return createdAt;
     }
 
     public void setCreatedAt(String createdAt) {
-        this.createdAt = OffsetDateTime.parse(createdAt);
+        this.createdAt = createdAt;
     }
 
     public String getUpdatedAt() {
-        return updatedAt != null ? updatedAt.toString() : null;
+        return updatedAt;
     }
 
     public void setUpdatedAt(String updatedAt) {
-        this.updatedAt = OffsetDateTime.parse(updatedAt);
+        this.updatedAt = updatedAt;
     }
 }
+

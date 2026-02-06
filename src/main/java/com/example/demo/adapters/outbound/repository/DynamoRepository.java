@@ -58,10 +58,8 @@ public class DynamoRepository implements RepositoryPort {
     @Override
     public Optional<Video> findByVideoKey(String videoKey) {
 
-        VideoDynamoModel item = table.getItem(
-                Key.builder()
-                        .partitionValue(videoKey)
-                        .build()
+        VideoDynamoModel item = table.getItem(r ->
+                r.key(k -> k.partitionValue(videoKey))
         );
 
         return Optional.ofNullable(item)

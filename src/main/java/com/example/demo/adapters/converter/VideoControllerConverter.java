@@ -7,7 +7,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Component
 public class VideoControllerConverter {
 
-    public VideoPostingRequest convertToVideoPostingRequest(String fileName, String userId, MultipartFile file){
-        return new VideoPostingRequest(fileName, userId, file);
+    public VideoPostingRequest convertToVideoPostingRequest(String fileName, String userId, String userName, MultipartFile file){
+        return new VideoPostingRequest(fileName, userId, userName, file);
     }
 }

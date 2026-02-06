@@ -17,6 +17,7 @@ class VideoControllerConverterTest {
         // given
         String fileName = "video.mp4";
         String userId = "user-123";
+        String userName = "user";
 
         MultipartFile file = new MockMultipartFile(
                 "file",
@@ -27,7 +28,7 @@ class VideoControllerConverterTest {
 
         // when
         VideoPostingRequest result =
-                converter.convertToVideoPostingRequest(fileName, userId, file);
+                converter.convertToVideoPostingRequest(fileName, userId, userName, file);
 
         // then
         assertNotNull(result);

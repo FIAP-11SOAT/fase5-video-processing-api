@@ -44,6 +44,7 @@ public class FramesDownloadService implements FramesDownloadServicePort {
     public String getUrl(String videoKey, String bucketName) {
         log.info("Solicitação de URL download - key={}", videoKey);
         String key = videoKey.replaceFirst("\\.zip$", "");
+        System.out.println("key: " + key);
         Optional<Video> video = repository.findByVideoKey(key);
 
         if (video.isPresent()){

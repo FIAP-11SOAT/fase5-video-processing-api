@@ -44,7 +44,7 @@ public class VideoPostingService implements VideoPostingServicePort {
             MultipartFile file = request.file();
             validateFile(file);
             UUID uuid = UUID.randomUUID();
-            String key = String.format("%s/%s", request.userId(), uuid);
+            String key = String.format("%s/%s", request.userName(), uuid);
             fileStorage.uploadFile(file, key, bucketName);
             Video video = buildVideo(key, uuid, request);
             repository.save(video);

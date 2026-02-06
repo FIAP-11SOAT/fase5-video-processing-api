@@ -61,9 +61,9 @@ public class VideoControllerFunctionalTest {
         );
 
         VideoPostingRequest request =
-                new VideoPostingRequest("meu-video", "123", file);
+                new VideoPostingRequest("meu-video", "123", "user", file);
 
-        when(converter.convertToVideoPostingRequest("meu-video", "123", file))
+        when(converter.convertToVideoPostingRequest("meu-video", "123", "user", file))
                 .thenReturn(request);
 
         doNothing().when(videoPostingService)
@@ -111,9 +111,9 @@ public class VideoControllerFunctionalTest {
         );
 
         VideoPostingRequest request =
-                new VideoPostingRequest("meu-video", "123", file);
+                new VideoPostingRequest("meu-video", "123", "user", file);
 
-        when(converter.convertToVideoPostingRequest("meu-video", "123", file))
+        when(converter.convertToVideoPostingRequest("meu-video", "123", "user", file))
                 .thenReturn(request);
 
         doThrow(new RuntimeException("erro"))

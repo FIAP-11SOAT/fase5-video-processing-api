@@ -2,6 +2,7 @@ package com.example.demo.adapters.outbound.notification_queue;
 
 import com.example.demo.adapters.outbound.model.NotificationPayload;
 
+import com.example.demo.adapters.outbound.model.Payload;
 import io.awspring.cloud.sqs.operations.SqsTemplate;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -22,6 +23,7 @@ public class NotificationImpl implements NotificationPort {
 
     @Override
     public void send(NotificationPayload message) {
-        this.sqsTemplate.send(queue, message);
+        Payload payload = new Payload(message);
+        this.sqsTemplate.send(queue, payload);
     }
 }

@@ -6,18 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="58a3b2de-2d18-4415-87aa-23116fdcd0f6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/adapters/inbound/http/FramesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/adapters/inbound/http/FramesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/adapters/converter/VideoControllerConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/adapters/converter/VideoControllerConverter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/adapters/inbound/http/VideoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/adapters/inbound/http/VideoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/adapters/outbound/repository/DynamoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/adapters/outbound/repository/DynamoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/core/model/VideoPostingRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/core/model/VideoPostingRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/core/services/VideoPostingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/core/services/VideoPostingService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/shared/config/security/JwtConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/shared/config/security/JwtConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/shared/config/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/shared/config/security/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application-dev.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-dev.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application-prod.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-prod.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application-test.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-test.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/demo/adapters/outbound/repository/DynamoRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/demo/adapters/outbound/repository/DynamoRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/demo/adapters/converter/VideoControllerConverterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/demo/adapters/converter/VideoControllerConverterTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/example/demo/core/services/VideoPostingServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/demo/core/services/VideoPostingServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/example/demo/functional/VideoControllerFunctionalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/demo/functional/VideoControllerFunctionalTest.java" afterDir="false" />
     </list>
@@ -58,62 +52,62 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.CatalogApplication.executor": "Run",
-    "Application.VideoProcessingApiApplication.executor": "Run",
-    "Cucumber Java.All Features in: test.executor": "Run",
-    "JUnit.All in catalog-service.executor": "Run",
-    "JUnit.All in demo.executor": "Run",
-    "JUnit.CatalogApplicationTests.contextLoads.executor": "Run",
-    "JUnit.CatalogApplicationTests.executor": "Run",
-    "JUnit.CategoryControllerTest.executor": "Run",
-    "JUnit.CategoryConverterTest.executor": "Run",
-    "JUnit.CategoryFunctionalTest.executor": "Run",
-    "JUnit.CategoryFunctionalTest.shouldGetAllCategories.executor": "Run",
-    "JUnit.CategoryServiceTest.executor": "Run",
-    "JUnit.DynamoRepositoryTest.executor": "Run",
-    "JUnit.ExceptionUtilsTest.executor": "Coverage",
-    "JUnit.ExceptionUtilsTest.shouldCreateApiExceptionWithGivenParams.executor": "Run",
-    "JUnit.FramesControllerFunctionalTest.executor": "Run",
-    "JUnit.FramesControllerFunctionalTest.shouldDownloadZipSuccessfully.executor": "Run",
-    "JUnit.FramesDownloadServiceTest.executor": "Coverage",
-    "JUnit.GlobalExceptionHandlerTest.executor": "Coverage",
-    "JUnit.GlobalExceptionHandlerTest.shouldHandleApiException.executor": "Run",
-    "JUnit.HealthControllerFunctionalTest.executor": "Run",
-    "JUnit.HealthControllerFunctionalTest.healthCheck.executor": "Run",
-    "JUnit.MockRepositoryTest.executor": "Coverage",
-    "JUnit.ProductControllerTest.executor": "Run",
-    "JUnit.ProductControllerTest.shouldReturnProductsFilteredByCategory.executor": "Run",
-    "JUnit.ProductConverterTest.executor": "Run",
-    "JUnit.ProductFunctionalTest.executor": "Run",
-    "JUnit.ProductFunctionalTest.shouldCreateProduct.executor": "Run",
-    "JUnit.ProductFunctionalTest.shouldListAllProducts.executor": "Run",
-    "JUnit.ProductFunctionalTest.shouldListAllProductsByCategory.executor": "Run",
-    "JUnit.ProductServiceTest.executor": "Run",
-    "JUnit.S3FileStorageAdapterTest.executor": "Run",
-    "JUnit.VideoControllerConverterTest.executor": "Run",
-    "JUnit.VideoControllerFunctionalTest.executor": "Run",
-    "JUnit.VideoControllerFunctionalTest.shouldReturnBadRequestWhenFileIsMissing.executor": "Run",
-    "JUnit.VideoControllerFunctionalTest.shouldReturnInternalServerErrorWhenServiceThrowsException.executor": "Run",
-    "JUnit.VideoControllerFunctionalTest.shouldReturnVideosList.executor": "Run",
-    "JUnit.VideoControllerFunctionalTest.shouldUploadVideoSuccessfully.executor": "Run",
-    "JUnit.VideoPostingServiceTest.executor": "Run",
-    "JUnit.VideoPostingServiceTest.shouldThrowExceptionWhenFileSizeExceedsLimit.executor": "Run",
-    "JUnit.java in catalog-service.executor": "Run",
-    "JUnit.java in demo.executor": "Run",
-    "Makefile Target.run-dev.executor": "Run",
-    "Makefile Target.run.executor": "Run",
-    "Makefile Target.test.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "feature/set-up",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/amanda/Documentos/fase-05-hackaton/fase5-video-notification-worker/pom.xml",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.CatalogApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.VideoProcessingApiApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Cucumber Java.All Features in: test.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.All in catalog-service.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.All in demo.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CatalogApplicationTests.contextLoads.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CatalogApplicationTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CategoryControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CategoryConverterTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CategoryFunctionalTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CategoryFunctionalTest.shouldGetAllCategories.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CategoryServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DynamoRepositoryTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ExceptionUtilsTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.ExceptionUtilsTest.shouldCreateApiExceptionWithGivenParams.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.FramesControllerFunctionalTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.FramesControllerFunctionalTest.shouldDownloadZipSuccessfully.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.FramesDownloadServiceTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.GlobalExceptionHandlerTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.GlobalExceptionHandlerTest.shouldHandleApiException.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HealthControllerFunctionalTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HealthControllerFunctionalTest.healthCheck.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MockRepositoryTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.ProductControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ProductControllerTest.shouldReturnProductsFilteredByCategory.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ProductConverterTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ProductFunctionalTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ProductFunctionalTest.shouldCreateProduct.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ProductFunctionalTest.shouldListAllProducts.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ProductFunctionalTest.shouldListAllProductsByCategory.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ProductServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.S3FileStorageAdapterTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VideoControllerConverterTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VideoControllerFunctionalTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VideoControllerFunctionalTest.shouldReturnBadRequestWhenFileIsMissing.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VideoControllerFunctionalTest.shouldReturnInternalServerErrorWhenServiceThrowsException.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VideoControllerFunctionalTest.shouldReturnVideosList.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VideoControllerFunctionalTest.shouldUploadVideoSuccessfully.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VideoPostingServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VideoPostingServiceTest.shouldThrowExceptionWhenFileSizeExceedsLimit.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.java in catalog-service.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.java in demo.executor&quot;: &quot;Run&quot;,
+    &quot;Makefile Target.run-dev.executor&quot;: &quot;Run&quot;,
+    &quot;Makefile Target.run.executor&quot;: &quot;Run&quot;,
+    &quot;Makefile Target.test.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/set-up&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/amanda/Documentos/fase-05-hackaton/fase5-video-notification-worker/pom.xml&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/com/example/demo/shared" />
@@ -142,7 +136,7 @@
       <recent name="com.example.demo.stepdefs" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.VideoControllerFunctionalTest.shouldReturnVideosList">
+  <component name="RunManager" selected="JUnit.VideoControllerFunctionalTest">
     <configuration name="VideoControllerFunctionalTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="demo" />
       <extension name="coverage">
@@ -296,9 +290,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.VideoControllerFunctionalTest.shouldReturnVideosList" />
         <item itemvalue="JUnit.VideoControllerFunctionalTest" />
         <item itemvalue="JUnit.java in demo" />
+        <item itemvalue="JUnit.VideoControllerFunctionalTest.shouldReturnVideosList" />
         <item itemvalue="JUnit.VideoPostingServiceTest" />
         <item itemvalue="JUnit.VideoPostingServiceTest.shouldThrowExceptionWhenFileSizeExceedsLimit" />
       </list>

@@ -50,8 +50,9 @@ class VideoPostingServiceTest {
         );
 
         VideoPostingRequest request = new VideoPostingRequest(
-                USER_ID,
                 "video.mp4",
+                USER_ID,
+                "user",
                 file
         );
 
@@ -79,8 +80,9 @@ class VideoPostingServiceTest {
         );
 
         VideoPostingRequest request = new VideoPostingRequest(
-                USER_ID,
                 "big-video.mp4",
+                USER_ID,
+                "user",
                 file
         );
 
@@ -103,8 +105,9 @@ class VideoPostingServiceTest {
         );
 
         VideoPostingRequest request = new VideoPostingRequest(
-                USER_ID,
                 "file.txt",
+                USER_ID,
+                "user",
                 file
         );
 
@@ -127,8 +130,9 @@ class VideoPostingServiceTest {
         );
 
         VideoPostingRequest request = new VideoPostingRequest(
-                USER_ID,
                 "video.mp4",
+                USER_ID,
+                "user",
                 file
         );
 

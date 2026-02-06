@@ -40,10 +40,20 @@ public class VideoController {
             @AuthenticationPrincipal Jwt jwt
             ) throws IOException {
 
-        String userId = jwt.getClaims().get("sub").toString();
-        String customerName = jwt.getClaims().get("username").toString();
+        String userId;
+        String userName;
 
-        VideoPostingRequest request = converter.convertToVideoPostingRequest(fileName, userId, file);
+        System.out.println(jwt.getClaims());
+
+        if (jwt == null){
+            userId = "123";
+            userName = "user";
+        } else {
+            userId = jwt.getClaims().get("sub").toString();
+            userName = jwt.getClaims().get("username").toString();
+        }
+
+        VideoPostingRequest request = converter.convertToVideoPostingRequest(fileName, userId, userName, file);
         videoPostingService.upload(request, bucketName);
         return ResponseEntity.accepted().build();
     }
@@ -53,9 +63,16 @@ public class VideoController {
             @AuthenticationPrincipal Jwt jwt
     ){
 
-        String userId = jwt.getClaims().get("sub").toString();
-        String customerName = jwt.getClaims().get("user_id").toString();
+        String userId;
+        String userName;
 
+        if (jwt == null){
+            userId = "123";
+            userName = "user";
+        } else {
+            userId = jwt.getClaims().get("sub").toString();
+            userName = jwt.getClaims().get("username").toString();
+        }
         List<VideoResponseDto> videos =  videoPostingService.getVideos(userId);
         return ResponseEntity.ok(videos);
     }
