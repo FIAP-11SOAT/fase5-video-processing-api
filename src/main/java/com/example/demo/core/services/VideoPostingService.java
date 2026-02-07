@@ -84,7 +84,7 @@ public class VideoPostingService implements VideoPostingServicePort {
         Video video = new Video();
         video.setId(uuid);
         video.setVideoKey(key);
-        video.setName(request.fileName());
+        video.setName(request.file().getOriginalFilename());
         video.setUserId(request.userId());
         video.setStatus(STATUS_UPLOADED);
         video.setCreatedAt(OffsetDateTime.now());
@@ -94,7 +94,7 @@ public class VideoPostingService implements VideoPostingServicePort {
     }
 
     private void sendNotification(VideoPostingRequest video, String videoKey){
-        NotificationPayload message = new NotificationPayload(videoKey, video.fileName(), video.userId(), STATUS_UPLOADED);
+        NotificationPayload message = new NotificationPayload(videoKey, video.file().getOriginalFilename(), video.userId(), STATUS_UPLOADED);
         notificationService.send(message);
     }
 }

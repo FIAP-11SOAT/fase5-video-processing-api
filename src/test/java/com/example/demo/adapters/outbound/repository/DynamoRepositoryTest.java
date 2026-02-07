@@ -6,15 +6,17 @@ import com.example.demo.core.model.Video;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockedStatic;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Value;
 import software.amazon.awssdk.core.pagination.sync.SdkIterable;
 import software.amazon.awssdk.enhanced.dynamodb.*;
 import software.amazon.awssdk.enhanced.dynamodb.model.Page;
 import software.amazon.awssdk.enhanced.dynamodb.model.QueryConditional;
+
+import software.amazon.awssdk.enhanced.dynamodb.model.PageIterable;
+import software.amazon.awssdk.enhanced.dynamodb.model.ScanEnhancedRequest;
+
 
 import java.util.List;
 import java.util.Optional;
@@ -128,8 +130,15 @@ class DynamoRepositoryTest {
         VideoDynamoModel dynamoModel = new VideoDynamoModel();
         Video domainVideo = new Video();
 
-        when(table.getItem(any(Key.class)))
-                .thenReturn(dynamoModel);
+        SdkIterable<VideoDynamoModel> items =
+                () -> List.of(dynamoModel).iterator();
+
+        PageIterable<VideoDynamoModel> pageIterable =
+                mock(PageIterable.class);
+
+        when(pageIterable.items()).thenReturn(items);
+        when(table.scan(any(ScanEnhancedRequest.class)))
+                .thenReturn(pageIterable);
 
         try (MockedStatic<VideoModelMapper> mapper = mockStatic(VideoModelMapper.class)) {
             mapper.when(() -> VideoModelMapper.toDomain(dynamoModel))
@@ -147,8 +156,15 @@ class DynamoRepositoryTest {
     @Test
     void shouldReturnEmptyOptionalWhenVideoKeyNotFound() {
         // arrange
-        when(table.getItem(any(Key.class)))
-                .thenReturn(null);
+        SdkIterable<VideoDynamoModel> emptyItems =
+                () -> List.<VideoDynamoModel>of().iterator();
+
+        PageIterable<VideoDynamoModel> pageIterable =
+                mock(PageIterable.class);
+
+        when(pageIterable.items()).thenReturn(emptyItems);
+        when(table.scan(any(ScanEnhancedRequest.class)))
+                .thenReturn(pageIterable);
 
         // act
         Optional<Video> result = repository.findByVideoKey("not-found");
@@ -156,4 +172,69 @@ class DynamoRepositoryTest {
         // assert
         assertTrue(result.isEmpty());
     }
+
+    @Test
+    void shouldFindVideoById() {
+        // arrange
+        String id = UUID.randomUUID().toString();
+
+        VideoDynamoModel dynamoModel = new VideoDynamoModel();
+        Video domainVideo = new Video();
+
+        SdkIterable<VideoDynamoModel> items =
+                () -> List.of(dynamoModel).iterator();
+
+        PageIterable<VideoDynamoModel> pageIterable =
+                mock(PageIterable.class);
+
+        when(pageIterable.items()).thenReturn(items);
+        when(table.scan(any(ScanEnhancedRequest.class)))
+                .thenReturn(pageIterable);
+
+        try (MockedStatic<VideoModelMapper> mapper = mockStatic(VideoModelMapper.class)) {
+            mapper.when(() -> VideoModelMapper.toDomain(dynamoModel))
+                    .thenReturn(domainVideo);
+
+            // act
+            Optional<Video> result = repository.findById(id);
+
+            // assert
+            assertTrue(result.isPresent());
+            assertEquals(domainVideo, result.get());
+            verify(table, times(1)).scan(any(ScanEnhancedRequest.class));
+        }
+    }
+
+    @Test
+    void shouldThrowExceptionWhenScanFailsOnFindByVideoKey() {
+        // arrange
+        when(table.scan(any(ScanEnhancedRequest.class)))
+                .thenThrow(new RuntimeException("Dynamo error"));
+
+        // act + assert
+        RuntimeException ex = assertThrows(
+                RuntimeException.class,
+                () -> repository.findByVideoKey("video-key")
+        );
+
+        assertEquals("Dynamo error", ex.getMessage());
+    }
+
+    @Test
+    void shouldThrowExceptionWhenScanFailsOnFindById() {
+        // arrange
+        when(table.scan(any(ScanEnhancedRequest.class)))
+                .thenThrow(new RuntimeException("Scan failed"));
+
+        // act + assert
+        RuntimeException ex = assertThrows(
+                RuntimeException.class,
+                () -> repository.findById("id-123")
+        );
+
+        assertEquals("Scan failed", ex.getMessage());
+    }
+
+
+
 }

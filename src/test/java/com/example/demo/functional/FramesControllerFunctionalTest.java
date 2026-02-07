@@ -70,4 +70,17 @@ class FramesControllerFunctionalTest {
         mockMvc.perform(get("/videos/invalid.zip/download"))
                 .andExpect(status().isBadRequest());
     }
+
+    @Test
+    void shouldGenerateDownloadUrlWithoutJwt() throws Exception {
+        String videoId = "video-123";
+        String expectedUrl = "https://s3.amazonaws.com/test-bucket/video-123.zip";
+
+        when(framesService.getUrl(videoId, "test-bucket", "123"))
+                .thenReturn(expectedUrl);
+
+        mockMvc.perform(get("/videos/{videoId}/download-url", videoId))
+                .andExpect(status().isOk());
+    }
+
 }

@@ -160,4 +160,54 @@ class MockRepositoryTest {
         v.setUpdatedAt(OffsetDateTime.now());
         return v;
     }
+
+    @Test
+    void shouldFindById() {
+        // arrange
+        Video video = buildVideo("key-1", "user-1", "video.mp4");
+        UUID id = video.getId();
+
+        repository.save(video);
+
+        // act
+        Optional<Video> result = repository.findById(id.toString());
+
+        // assert
+        assertTrue(result.isPresent());
+        assertEquals(id, result.get().getId());
+        assertEquals("key-1", result.get().getVideoKey());
+    }
+
+    @Test
+    void shouldReturnEmptyOptionalWhenIdNotFound() {
+        // act
+        Optional<Video> result = repository.findById(UUID.randomUUID().toString());
+
+        // assert
+        assertTrue(result.isEmpty());
+    }
+
+    @Test
+    void shouldNotExposeInternalStateOnFindByUserId() {
+        // arrange
+        Video video1 = buildVideo("key-1", "user-1", "a.mp4");
+        Video video2 = buildVideo("key-2", "user-1", "b.mp4");
+
+        repository.save(video1);
+        repository.save(video2);
+
+        List<Video> retrieved = repository.findByUserId("user-1");
+
+        // mutate returned list objects
+        retrieved.get(0).setName("changed.mp4");
+
+        // act
+        List<Video> again = repository.findByUserId("user-1");
+
+        // assert
+        assertTrue(
+                again.stream().noneMatch(v -> "changed.mp4".equals(v.getName()))
+        );
+    }
+
 }

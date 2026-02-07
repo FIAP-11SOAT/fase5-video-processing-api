@@ -6,9 +6,23 @@
   <component name="ChangeListManager">
     <list default="true" id="58a3b2de-2d18-4415-87aa-23116fdcd0f6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/adapters/outbound/model/VideoDynamoModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/adapters/outbound/model/VideoDynamoModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application-prod.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-prod.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/adapters/converter/VideoControllerConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/adapters/converter/VideoControllerConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/adapters/dto/http/VideoPostingBodyDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/adapters/inbound/http/FramesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/adapters/inbound/http/FramesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/adapters/inbound/http/VideoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/adapters/inbound/http/VideoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/adapters/outbound/repository/MockRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/adapters/outbound/repository/MockRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/core/model/VideoPostingRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/core/model/VideoPostingRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/core/ports/FramesDownloadServicePort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/core/ports/FramesDownloadServicePort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/core/services/FramesDownloadService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/core/services/FramesDownloadService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/core/services/VideoPostingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/core/services/VideoPostingService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/shared/exceptions/ExceptionUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/shared/exceptions/ExceptionUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/demo/adapters/converter/VideoControllerConverterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/demo/adapters/converter/VideoControllerConverterTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/demo/adapters/outbound/repository/DynamoRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/demo/adapters/outbound/repository/DynamoRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/demo/adapters/outbound/repository/MockRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/demo/adapters/outbound/repository/MockRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/demo/core/services/FramesDownloadServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/demo/core/services/FramesDownloadServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/demo/core/services/VideoPostingServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/demo/core/services/VideoPostingServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/demo/functional/FramesControllerFunctionalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/demo/functional/FramesControllerFunctionalTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/demo/functional/VideoControllerFunctionalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/demo/functional/VideoControllerFunctionalTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,10 +33,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="JUnit5 Test Class" />
         <option value="Record" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -62,16 +76,24 @@
     "JUnit.CategoryFunctionalTest.shouldGetAllCategories.executor": "Run",
     "JUnit.CategoryServiceTest.executor": "Run",
     "JUnit.DynamoRepositoryTest.executor": "Run",
+    "JUnit.DynamoRepositoryTest.shouldFindVideoById.executor": "Run",
+    "JUnit.DynamoRepositoryTest.shouldThrowExceptionWhenScanFailsOnFindById.executor": "Run",
+    "JUnit.DynamoRepositoryTest.shouldThrowExceptionWhenScanFailsOnFindByVideoKey.executor": "Run",
     "JUnit.ExceptionUtilsTest.executor": "Coverage",
     "JUnit.ExceptionUtilsTest.shouldCreateApiExceptionWithGivenParams.executor": "Run",
-    "JUnit.FramesControllerFunctionalTest.executor": "Run",
+    "JUnit.FramesControllerFunctionalTest.executor": "Coverage",
     "JUnit.FramesControllerFunctionalTest.shouldDownloadZipSuccessfully.executor": "Run",
-    "JUnit.FramesDownloadServiceTest.executor": "Coverage",
+    "JUnit.FramesControllerFunctionalTest.shouldGenerateDownloadUrlWithoutJwt.executor": "Run",
+    "JUnit.FramesDownloadServiceTest.executor": "Run",
+    "JUnit.FramesDownloadServiceTest.shouldDownloadZipWhenVideoExists.executor": "Run",
+    "JUnit.FramesDownloadServiceTest.shouldReturnPresignedUrlWhenUserIsOwner.executor": "Run",
     "JUnit.GlobalExceptionHandlerTest.executor": "Coverage",
     "JUnit.GlobalExceptionHandlerTest.shouldHandleApiException.executor": "Run",
     "JUnit.HealthControllerFunctionalTest.executor": "Run",
     "JUnit.HealthControllerFunctionalTest.healthCheck.executor": "Run",
-    "JUnit.MockRepositoryTest.executor": "Coverage",
+    "JUnit.MockRepositoryTest.executor": "Run",
+    "JUnit.MockRepositoryTest.shouldFindById.executor": "Run",
+    "JUnit.NotificationImplTest.executor": "Run",
     "JUnit.ProductControllerTest.executor": "Run",
     "JUnit.ProductControllerTest.shouldReturnProductsFilteredByCategory.executor": "Run",
     "JUnit.ProductConverterTest.executor": "Run",
@@ -88,9 +110,11 @@
     "JUnit.VideoControllerFunctionalTest.shouldReturnVideosList.executor": "Run",
     "JUnit.VideoControllerFunctionalTest.shouldUploadVideoSuccessfully.executor": "Run",
     "JUnit.VideoPostingServiceTest.executor": "Run",
+    "JUnit.VideoPostingServiceTest.shouldSendCorrectNotificationPayload.executor": "Run",
+    "JUnit.VideoPostingServiceTest.shouldSendNotificationAfterSuccessfulUpload.executor": "Run",
     "JUnit.VideoPostingServiceTest.shouldThrowExceptionWhenFileSizeExceedsLimit.executor": "Run",
     "JUnit.java in catalog-service.executor": "Run",
-    "JUnit.java in demo.executor": "Run",
+    "JUnit.java in demo.executor": "Coverage",
     "Makefile Target.run-dev.executor": "Run",
     "Makefile Target.run.executor": "Run",
     "Makefile Target.test.executor": "Run",
@@ -121,18 +145,18 @@
       <recent name="com.example.demo.adapters.inbound" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.example.demo.adapters.outbound.notification_queue" />
       <recent name="com.example.demo.adapters.converter" />
       <recent name="com.example.demo.shared.exceptions" />
       <recent name="com.example.demo.adapters.outbound.storage" />
       <recent name="com.example.demo.adapters.outbound.repository" />
-      <recent name="com.example.demo.core.services" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.example.demo.stepdefs" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.VideoControllerFunctionalTest">
-    <configuration name="VideoControllerFunctionalTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.java in demo">
+    <configuration name="FramesControllerFunctionalTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="demo" />
       <extension name="coverage">
         <pattern>
@@ -141,13 +165,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.example.demo.functional" />
-      <option name="MAIN_CLASS_NAME" value="com.example.demo.functional.VideoControllerFunctionalTest" />
+      <option name="MAIN_CLASS_NAME" value="com.example.demo.functional.FramesControllerFunctionalTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="VideoControllerFunctionalTest.shouldReturnVideosList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="FramesControllerFunctionalTest.shouldGenerateDownloadUrlWithoutJwt" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="demo" />
       <extension name="coverage">
         <pattern>
@@ -156,8 +180,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.example.demo.functional" />
-      <option name="MAIN_CLASS_NAME" value="com.example.demo.functional.VideoControllerFunctionalTest" />
-      <option name="METHOD_NAME" value="shouldReturnVideosList" />
+      <option name="MAIN_CLASS_NAME" value="com.example.demo.functional.FramesControllerFunctionalTest" />
+      <option name="METHOD_NAME" value="shouldGenerateDownloadUrlWithoutJwt" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -178,7 +202,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="VideoPostingServiceTest.shouldThrowExceptionWhenFileSizeExceedsLimit" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="VideoPostingServiceTest.shouldSendCorrectNotificationPayload" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="demo" />
       <extension name="coverage">
         <pattern>
@@ -188,7 +212,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.example.demo.core.services" />
       <option name="MAIN_CLASS_NAME" value="com.example.demo.core.services.VideoPostingServiceTest" />
-      <option name="METHOD_NAME" value="shouldThrowExceptionWhenFileSizeExceedsLimit" />
+      <option name="METHOD_NAME" value="shouldSendCorrectNotificationPayload" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -285,11 +309,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.VideoControllerFunctionalTest" />
         <item itemvalue="JUnit.java in demo" />
-        <item itemvalue="JUnit.VideoControllerFunctionalTest.shouldReturnVideosList" />
+        <item itemvalue="JUnit.FramesControllerFunctionalTest" />
+        <item itemvalue="JUnit.FramesControllerFunctionalTest.shouldGenerateDownloadUrlWithoutJwt" />
         <item itemvalue="JUnit.VideoPostingServiceTest" />
-        <item itemvalue="JUnit.VideoPostingServiceTest.shouldThrowExceptionWhenFileSizeExceedsLimit" />
+        <item itemvalue="JUnit.VideoPostingServiceTest.shouldSendCorrectNotificationPayload" />
       </list>
     </recent_temporary>
   </component>
@@ -308,13 +332,17 @@
     <watches-manager>
       <configuration name="JUnit">
         <watch expression="products.get(0).category.products" />
+        <watch expression="((Video)((java.util.concurrent.ConcurrentHashMap.MapEntry)((java.util.concurrent.ConcurrentHashMap)((MockRepository)this).table).entrySet().toArray()[0]).getValue()).id" custom="com.example.demo.core.model.Video,java.util.concurrent.ConcurrentHashMap,java.util.concurrent.ConcurrentHashMap.MapEntry,com.example.demo.adapters.outbound.repository.MockRepository" />
       </configuration>
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/fase5_video_processing_api$java_in_demo.ic" NAME="java in demo Coverage Results" MODIFIED="1769472968919" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/fase5_video_processing_api$java_in_demo.ic" NAME="java in demo Coverage Results" MODIFIED="1770425805301" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/fase5_video_processing_api$VideoPostingServiceTest.ic" NAME="VideoPostingServiceTest Coverage Results" MODIFIED="1769368403629" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>com.example.demo.core.services.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/fase5_video_processing_api$FramesControllerFunctionalTest.ic" NAME="FramesControllerFunctionalTest Coverage Results" MODIFIED="1770425786047" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.example.demo.functional.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/fase4_catalog_service$java_in_demo.ic" NAME="java in demo Coverage Results" MODIFIED="1766101100151" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/fase5_video_processing_api$DynamoRepositoryTest.ic" NAME="DynamoRepositoryTest Coverage Results" MODIFIED="1769371497217" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">

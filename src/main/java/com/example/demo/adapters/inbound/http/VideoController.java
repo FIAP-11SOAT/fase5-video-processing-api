@@ -36,23 +36,12 @@ public class VideoController {
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<Void> uploadVideo(
             @RequestPart("file") MultipartFile file,
-            @RequestPart("file_name") String fileName,
             @AuthenticationPrincipal Jwt jwt
             ) throws IOException {
 
-        String userId;
-        String userName;
-
-        if (jwt == null){
-            userId = "123";
-            userName = "user";
-        } else {
-            System.out.println(jwt.getClaims());
-            userId = jwt.getClaims().get("sub").toString();
-            userName = jwt.getClaims().get("username").toString();
-        }
-
-        VideoPostingRequest request = converter.convertToVideoPostingRequest(fileName, userId, userName, file);
+        String userId = getUserId(jwt);
+        String userName = getUserName(jwt);
+        VideoPostingRequest request = converter.convertToVideoPostingRequest(userId, userName, file);
         videoPostingService.upload(request, bucketName);
         return ResponseEntity.accepted().build();
     }
@@ -61,14 +50,7 @@ public class VideoController {
     public ResponseEntity<List<VideoResponseDto>> getVideos(
             @AuthenticationPrincipal Jwt jwt
     ){
-
-        String userId;
-
-        if (jwt == null){
-            userId = "123";
-        } else {
-            userId = jwt.getClaims().get("sub").toString();
-        }
+        String userId = getUserId(jwt);
         List<VideoResponseDto> videos =  videoPostingService.getVideos(userId);
         return ResponseEntity.ok(videos);
     }
@@ -80,5 +62,21 @@ public class VideoController {
     ) {
         VideoResponseDto video = videoPostingService.getVideoByVideoKey(videoKey);
         return ResponseEntity.ok(video);
+    }
+
+    private String getUserId(Jwt jwt){
+        if (jwt == null){
+            return "123";
+        } else {
+            return jwt.getClaims().get("sub").toString();
+        }
+    }
+
+    private String getUserName(Jwt jwt){
+        if (jwt == null){
+            return "user";
+        } else {
+            return jwt.getClaims().get("username").toString();
+        }
     }
 }

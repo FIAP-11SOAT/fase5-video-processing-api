@@ -42,8 +42,9 @@ public class MockRepository implements RepositoryPort {
 
     @Override
     public Optional<Video> findById(String id) {
+        System.out.println("Size: " + this.table.size());
         return table.values().stream()
-                .filter(video -> id.equals(video.getId()))
+                .filter(video -> id.equals(video.getId().toString()))
                 .findFirst()
                 .map(this::clone);
     }

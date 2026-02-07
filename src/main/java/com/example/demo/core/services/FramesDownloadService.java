@@ -31,9 +31,8 @@ public class FramesDownloadService implements FramesDownloadServicePort {
 
         if (video.isPresent()){
             String fileName = video.get().getName();
-            // No S3, os frames processados têm extensão .zip
             String s3Key = video.get().getVideoKey() + ".zip";
-            S3File zip = fileStorage.downloadAsStream(bucketName, s3Key);
+            S3File zip = fileStorage.downloadAsStream(s3Key, bucketName);
             zip.setFileName(fileName);
             return zip;
         }
@@ -42,16 +41,21 @@ public class FramesDownloadService implements FramesDownloadServicePort {
     }
 
     @Override
-    public String getUrl(String videoId, String bucketName) {
+    public String getUrl(String videoId, String bucketName, String userId) {
         log.info("Solicitação de URL download - id={}", videoId);
-        Optional<Video> video = repository.findById(videoId);
+        Optional<Video> videoOptional = repository.findById(videoId);
 
-        if (video.isPresent()){
-            // No S3, os frames processados têm extensão .zip
-            String s3Key = video.get().getVideoKey() + ".zip";
-            return fileStorage.generatePresignedUrl(s3Key, bucketName);
+        if (videoOptional.isEmpty()){
+            throw ExceptionUtils.badRequest(ErrorType.FILE_NOT_FOUND, new RuntimeException(ErrorType.FILE_NOT_FOUND.getMessage()));
         }
 
-        throw ExceptionUtils.badRequest(ErrorType.FILE_NOT_FOUND, new RuntimeException(ErrorType.FILE_NOT_FOUND.getMessage()));
+        Video video = videoOptional.get();
+
+        if (!userId.equals(video.getUserId())){
+            throw ExceptionUtils.forbidden(ErrorType.FORBIDDEN, new RuntimeException(ErrorType.FORBIDDEN.getMessage()));
+        }
+
+        String s3Key = video.getVideoKey() + ".zip";
+        return fileStorage.generatePresignedUrl(s3Key, bucketName);
     }
 }

@@ -12,7 +12,6 @@ import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -45,21 +44,21 @@ public class FramesController {
                 .body(new InputStreamResource(file.getInputStream()));
     }
 
-    @GetMapping("/download-url")
-    public ResponseEntity<String> generateDownloadUrl(
-            @RequestParam String videoId,
-            @AuthenticationPrincipal Jwt jwt
-    ) {
-        String url = framesService.getUrl(videoId, bucketName);
-        return ResponseEntity.ok(url);
-    }
-
     @GetMapping("/{videoId}/download-url")
     public ResponseEntity<String> generateDownloadUrl2(
             @PathVariable String videoId,
             @AuthenticationPrincipal Jwt jwt
     ) {
-        String url = framesService.getUrl(videoId, bucketName);
+        String userId = getUserId(jwt);
+        String url = framesService.getUrl(videoId, bucketName, userId);
         return ResponseEntity.ok(url);
+    }
+
+    private String getUserId(Jwt jwt){
+        if (jwt == null){
+            return "123";
+        } else {
+            return jwt.getClaims().get("sub").toString();
+        }
     }
 }

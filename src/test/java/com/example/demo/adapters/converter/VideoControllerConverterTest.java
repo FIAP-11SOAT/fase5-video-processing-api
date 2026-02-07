@@ -28,11 +28,11 @@ class VideoControllerConverterTest {
 
         // when
         VideoPostingRequest result =
-                converter.convertToVideoPostingRequest(fileName, userId, userName, file);
+                converter.convertToVideoPostingRequest(userId, userName, file);
 
         // then
         assertNotNull(result);
-        assertEquals(fileName, result.fileName());
+        assertEquals(fileName, result.file().getOriginalFilename());
         assertEquals(userId, result.userId());
         assertEquals(file, result.file());
     }

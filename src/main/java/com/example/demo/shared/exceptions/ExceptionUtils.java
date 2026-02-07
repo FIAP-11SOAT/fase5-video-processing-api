@@ -18,6 +18,10 @@ public class ExceptionUtils {
         return exception(errorType, HttpStatus.BAD_REQUEST.value(), exception);
     }
 
+    public static APIException forbidden(ErrorType errorType, Exception exception) {
+        return exception(errorType, HttpStatus.FORBIDDEN.value(), exception);
+    }
+
     public static APIException notFound(ErrorType errorType, Exception exception) {
         return exception(errorType, HttpStatus.NOT_FOUND.value(), exception);
     }
