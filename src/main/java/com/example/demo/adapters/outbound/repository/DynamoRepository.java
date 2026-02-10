@@ -16,6 +16,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import static net.logstash.logback.argument.StructuredArguments.kv;
+
 @Slf4j
 @Repository
 @Profile({"prod", "dev"})
@@ -35,9 +37,20 @@ public class DynamoRepository implements RepositoryPort {
 
     @Override
     public void save(Video video) {
-        VideoDynamoModel videoDynamoModel = VideoModelMapper.toDynamo(video);
-        table.putItem(videoDynamoModel);
-        log.info("[DynamoRepository] Vídeo salvo no DynamoDB com id={}", video.getId());
+        try {
+            VideoDynamoModel videoDynamoModel = VideoModelMapper.toDynamo(video);
+            table.putItem(videoDynamoModel);
+            log.info("[DynamoRepository] Vídeo salvo no DynamoDB com id={}", video.getId());
+        } catch (Exception e){
+            log.error(
+                    "Error saving file",
+                    kv("class", "DynamoRepository"),
+                    kv("videoKey", video.getVideoKey()),
+                    kv("userId", video.getUserId()),
+                    e
+            );
+            throw e;
+        }
     }
 
     @Override
@@ -92,10 +105,7 @@ public class DynamoRepository implements RepositoryPort {
 
     @Override
     public Optional<Video> findById(String id) {
-        log.info("[DynamoRepository] Buscando vídeo por id={}", id);
-        
         try {
-            // Usando scan com filtro pois não temos userId para query direta
             ScanEnhancedRequest scanRequest = ScanEnhancedRequest.builder()
                     .filterExpression(
                             Expression.builder()
@@ -113,11 +123,14 @@ public class DynamoRepository implements RepositoryPort {
                     .findFirst()
                     .orElse(null);
             
-            log.info("[DynamoRepository] Resultado da busca por id: {}", item != null ? "encontrado" : "não encontrado");
-            return Optional.ofNullable(item)
-                    .map(VideoModelMapper::toDomain);
+            return Optional.ofNullable(item).map(VideoModelMapper::toDomain);
         } catch (Exception e) {
-            log.error("[DynamoRepository] Erro ao buscar id={}: {}", id, e.getMessage(), e);
+            log.error(
+                    "Error finding video on repository",
+                    kv("class", "DynamoRepository"),
+                    kv("videoId", id),
+                    e
+            );
             throw e;
         }
     }

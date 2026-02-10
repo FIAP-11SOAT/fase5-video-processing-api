@@ -229,6 +229,13 @@
 			<artifactId>spring-cloud-aws-starter-sqs</artifactId>
 		</dependency>
 
+		<!-- Logback JSON Encoder for structured logging -->
+		<dependency>
+			<groupId>net.logstash.logback</groupId>
+			<artifactId>logstash-logback-encoder</artifactId>
+			<version>7.4</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>

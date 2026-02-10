@@ -20,6 +20,8 @@ import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.UUID;
 
+import static net.logstash.logback.argument.StructuredArguments.kv;
+
 @Slf4j
 @Service
 public class VideoPostingService implements VideoPostingServicePort {
@@ -39,8 +41,6 @@ public class VideoPostingService implements VideoPostingServicePort {
 
     @Override
     public void upload(VideoPostingRequest request, String bucketName) throws IOException {
-
-        try {
             MultipartFile file = request.file();
             validateFile(file);
             UUID uuid = UUID.randomUUID();
@@ -49,10 +49,6 @@ public class VideoPostingService implements VideoPostingServicePort {
             Video video = buildVideo(key, uuid, request);
             repository.save(video);
             sendNotification(request, key);
-        } catch (Exception e){
-            log.error("[VideoPostingService]: Error upload() {}", e.getMessage());
-            throw e;
-        }
     }
 
     @Override

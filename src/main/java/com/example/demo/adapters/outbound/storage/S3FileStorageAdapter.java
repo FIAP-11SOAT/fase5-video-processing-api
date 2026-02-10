@@ -17,6 +17,8 @@ import software.amazon.awssdk.services.s3.presigner.model.GetObjectPresignReques
 import java.io.IOException;
 import java.time.Duration;
 
+import static net.logstash.logback.argument.StructuredArguments.kv;
+
 @Slf4j
 @Component
 public class S3FileStorageAdapter implements FileStoragePort {
@@ -69,7 +71,14 @@ public class S3FileStorageAdapter implements FileStoragePort {
                     RequestBody.fromInputStream(file.getInputStream(), file.getSize())
             );
         } catch(Exception e){
-            log.error("[S3FileStorageAdapter]: Error uploadFile() {}", e.getMessage());
+            log.error(
+                    "Error uploading file",
+                    kv("class", "S3FileStorageAdapter"),
+                    kv("videoKey", videoKey),
+                    kv("fileName", file.getOriginalFilename()),
+                    kv("contentType", file.getContentType()),
+                    e
+            );
             throw e;
 
         }
@@ -93,7 +102,12 @@ public class S3FileStorageAdapter implements FileStoragePort {
                     .url()
                     .toString();
         } catch(Exception e){
-            log.error("[S3FileStorageAdapter]: Error generatePresignedUrl() {}", e.getMessage());
+            log.error(
+                    "Error generating presigned url",
+                    kv("class", "S3FileStorageAdapter"),
+                    kv("videoKey", videoKey),
+                    e
+            );
             throw e;
         }
     }

@@ -26,7 +26,6 @@ public class FramesDownloadService implements FramesDownloadServicePort {
 
     @Override
     public S3File downloadZip(String videoId, String bucketName) {
-        log.info("Solicitação de download - id={}", videoId);
         Optional<Video> video = repository.findById(videoId);
 
         if (video.isPresent()){
@@ -42,7 +41,6 @@ public class FramesDownloadService implements FramesDownloadServicePort {
 
     @Override
     public String getUrl(String videoId, String bucketName, String userId) {
-        log.info("Solicitação de URL download - id={}", videoId);
         Optional<Video> videoOptional = repository.findById(videoId);
 
         if (videoOptional.isEmpty()){
