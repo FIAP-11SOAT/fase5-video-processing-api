@@ -9,7 +9,9 @@ metadata:
     alb.ingress.kubernetes.io/group.name: k8s-application-internal-alb-use1
     alb.ingress.kubernetes.io/scheme: internal
     alb.ingress.kubernetes.io/target-type: ip
-    alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":80}]'
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}]'
+    alb.ingress.kubernetes.io/healthcheck-path: /health
+    alb.ingress.kubernetes.io/healthcheck-port: traffic-port
 spec:
   ingressClassName: alb
   rules:

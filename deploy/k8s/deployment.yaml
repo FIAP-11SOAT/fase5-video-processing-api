@@ -15,21 +15,33 @@ spec:
       labels:
         app: fase5-video-processing-api
     spec:
+      serviceAccountName: fase5-video-processing-api-service-account
       containers:
       - name: fase5-video-processing-api
-        image: kennethreitz/fase5-video-processing-api:latest
+        image: 814147156565.dkr.ecr.us-east-1.amazonaws.com/fase5-video-processing-api-ecr:latest
         ports:
-        - containerPort: 80
+        - containerPort: 8080
+        env:
+        - name: SPRING_PROFILES_ACTIVE
+          value: "prod"
         resources:
           requests:
             cpu: "100m"
-            memory: "128Mi"
+            memory: "256Mi"
           limits:
             cpu: "500m"
-            memory: "256Mi"
+            memory: "512Mi"
         livenessProbe:
           httpGet:
             path: /health
-            port: 80
-          initialDelaySeconds: 15
+            port: 8080
+          initialDelaySeconds: 60
           periodSeconds: 10
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 30
+          periodSeconds: 5
+          failureThreshold: 3
