@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="58a3b2de-2d18-4415-87aa-23116fdcd0f6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/adapters/outbound/repository/DynamoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/adapters/outbound/repository/DynamoRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/adapters/outbound/storage/S3FileStorageAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/adapters/outbound/storage/S3FileStorageAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/core/services/FramesDownloadService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/core/services/FramesDownloadService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/core/services/VideoPostingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/core/services/VideoPostingService.java" afterDir="false" />
-    </list>
+    <list default="true" id="58a3b2de-2d18-4415-87aa-23116fdcd0f6" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
