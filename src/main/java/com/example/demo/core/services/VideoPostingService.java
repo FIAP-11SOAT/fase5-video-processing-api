@@ -20,8 +20,6 @@ import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.UUID;
 
-import static net.logstash.logback.argument.StructuredArguments.kv;
-
 @Slf4j
 @Service
 public class VideoPostingService implements VideoPostingServicePort {

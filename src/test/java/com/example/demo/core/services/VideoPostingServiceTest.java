@@ -1,13 +1,24 @@
 package com.example.demo.core.services;
 
-import com.example.demo.adapters.converter.VideoModelMapper;
-import com.example.demo.adapters.dto.VideoResponseDto;
-import com.example.demo.adapters.outbound.model.NotificationPayload;
-import com.example.demo.adapters.outbound.notification_queue.NotificationPort;
-import com.example.demo.adapters.outbound.repository.RepositoryPort;
-import com.example.demo.adapters.outbound.storage.FileStoragePort;
-import com.example.demo.core.model.Video;
-import com.example.demo.core.model.VideoPostingRequest;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.doThrow;
+import static org.mockito.Mockito.mockStatic;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+import java.io.IOException;
+import java.time.OffsetDateTime;
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
@@ -18,15 +29,14 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
-import java.time.OffsetDateTime;
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
-
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.*;
-import static org.mockito.Mockito.*;
+import com.example.demo.adapters.converter.VideoModelMapper;
+import com.example.demo.adapters.dto.VideoResponseDto;
+import com.example.demo.adapters.outbound.model.NotificationPayload;
+import com.example.demo.adapters.outbound.notification_queue.NotificationPort;
+import com.example.demo.adapters.outbound.repository.RepositoryPort;
+import com.example.demo.adapters.outbound.storage.FileStoragePort;
+import com.example.demo.core.model.Video;
+import com.example.demo.core.model.VideoPostingRequest;
 
 @ExtendWith(MockitoExtension.class)
 class VideoPostingServiceTest {

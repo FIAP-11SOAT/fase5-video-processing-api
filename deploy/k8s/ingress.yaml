@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: fase5-video-processing-api-ingress
+  namespace: fase5-video-processing-api
+  labels:
+    app: fase5-video-processing-api
+  annotations:
+    alb.ingress.kubernetes.io/group.name: k8s-application-internal-alb-use1
+    alb.ingress.kubernetes.io/scheme: internal
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":80}]'
+spec:
+  ingressClassName: alb
+  rules:
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: fase5-video-processing-api-service
+                port:
+                  number: 80
