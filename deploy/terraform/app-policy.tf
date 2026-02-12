@@ -69,10 +69,12 @@ data "aws_iam_policy_document" "app_policy" {
       "dynamodb:PutItem",
       "dynamodb:GetItem",
       "dynamodb:UpdateItem",
-      "dynamodb:Scan"
+      "dynamodb:Scan",
+      "dynamodb:Query"
     ]
     resources = [
-      data.aws_dynamodb_table.video_processing_table.arn
+      data.aws_dynamodb_table.video_processing_table.arn,
+      "${data.aws_dynamodb_table.video_processing_table.arn}/index/*"
     ]
   }
 }

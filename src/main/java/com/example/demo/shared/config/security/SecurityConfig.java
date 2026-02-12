@@ -12,6 +12,7 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.oauth2.jwt.JwtDecoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.web.cors.CorsConfigurationSource;
 
 import java.time.OffsetDateTime;
 
@@ -22,14 +23,17 @@ import static org.springframework.security.config.http.SessionCreationPolicy.STA
 public class SecurityConfig {
 
     private final JwtDecoder jwtDecoder;
+    private final CorsConfigurationSource corsConfigurationSource;
 
-    public SecurityConfig(JwtDecoder jwtDecoder) {
+    public SecurityConfig(JwtDecoder jwtDecoder, CorsConfigurationSource corsConfigurationSource) {
         this.jwtDecoder = jwtDecoder;
+        this.corsConfigurationSource = corsConfigurationSource;
     }
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
+                .cors(cors -> cors.configurationSource(corsConfigurationSource))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(
                                 "/swagger-ui.html",

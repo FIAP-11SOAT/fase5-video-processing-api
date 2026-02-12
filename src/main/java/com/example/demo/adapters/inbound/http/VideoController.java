@@ -17,6 +17,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/videos")
+@CrossOrigin(originPatterns = "*", allowCredentials = "true")
 public class VideoController {
 
     private final VideoPostingServicePort videoPostingService;
