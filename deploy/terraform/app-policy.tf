@@ -24,6 +24,22 @@ data "aws_iam_policy_document" "app_policy" {
     ]
   }
 
+  # # CloudWatch Logs permissions for Fluent Bit
+  # statement {
+  #   effect = "Allow"
+  #   actions = [
+  #     "logs:CreateLogStream",
+  #     "logs:CreateLogGroup",
+  #     "logs:PutLogEvents",
+  #     "logs:DescribeLogStreams",
+  #     "logs:DescribeLogGroups"
+  #   ]
+  #   resources = [
+  #     "arn:aws:logs:${var.aws_region}:${data.aws_caller_identity.current.account_id}:log-group:/aws/eks/${data.aws_eks_cluster.cluster.name}/${var.project_name}",
+  #     "arn:aws:logs:${var.aws_region}:${data.aws_caller_identity.current.account_id}:log-group:/aws/eks/${data.aws_eks_cluster.cluster.name}/${var.project_name}:*"
+  #   ]
+  # }
+
   statement {
     effect = "Allow"
     actions = [
