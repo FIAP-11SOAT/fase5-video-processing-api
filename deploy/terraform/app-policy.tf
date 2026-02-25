@@ -2,6 +2,10 @@ data "aws_s3_bucket" "videos_to_process" {
   bucket = "fase5-videos-to-process"
 }
 
+data "aws_s3_bucket" "processed_frames" {
+  bucket = "fase5-processed-frames"
+}
+
 data "aws_sqs_queue" "video_notification_queue" {
   name = "fase5-video-notification-queue"
 }
@@ -48,6 +52,17 @@ data "aws_iam_policy_document" "app_policy" {
     ]
     resources = [
       "${data.aws_s3_bucket.videos_to_process.arn}/*"
+    ]
+  }
+
+  statement {
+    effect = "Allow"
+    actions = [
+      "s3:GetObject",
+      "s3:PutObject"
+    ]
+    resources = [
+      "${data.aws_s3_bucket.processed_frames.arn}/*"
     ]
   }
 
