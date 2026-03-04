@@ -1,0 +1,73 @@
+name: CD - Production
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  deploy:
+    name: Deploy Infra + App
+    runs-on: ubuntu-latest
+
+    env:
+      AWS_REGION: us-east-1
+      CLUSTER_NAME: fase5-video-processing-infra-eks-cluster
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # ==============================
+      # AWS
+      # ==============================
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      # ==============================
+      # Terraform
+      # ==============================
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+
+      - name: Terraform Init
+        working-directory: deploy/terraform
+        run: terraform init
+
+      - name: Terraform Apply
+        working-directory: deploy/terraform
+        run: terraform apply -auto-approve
+
+      # ==============================
+      # Atualizar kubeconfig (EKS)
+      # ==============================
+      - name: Update kubeconfig
+        run: |
+          aws eks update-kubeconfig \
+            --region $AWS_REGION \
+            --name $CLUSTER_NAME
+
+      # ==============================
+      # Permissão scripts
+      # ==============================
+      - name: Give execution permission
+        run: chmod +x build-and-push.sh deploy-k8s.sh
+
+      # ==============================
+      # Build e Push (com SHA)
+      # ==============================
+      - name: Build and Push Docker Image
+        run: |
+          IMAGE_TAG=${GITHUB_SHA::7}
+          ./build-and-push.sh $IMAGE_TAG
+
+      # ==============================
+      # Deploy Kubernetes
+      # ==============================
+      - name: Deploy Kubernetes
+        run: ./deploy-k8s.sh apply

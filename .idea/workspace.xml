@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="58a3b2de-2d18-4415-87aa-23116fdcd0f6" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Record" />
+        <option value="Interface" />
+        <option value="Class" />
+        <option value="JUnit5 Test Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="36tpSJfuhymbp7BYLeUpzUvOrHw" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.CatalogApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.VideoProcessingApiApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Cucumber Java.All Features in: test.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.All in catalog-service.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.All in demo.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CatalogApplicationTests.contextLoads.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CatalogApplicationTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CategoryControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CategoryConverterTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CategoryFunctionalTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CategoryFunctionalTest.shouldGetAllCategories.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CategoryServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DynamoRepositoryTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DynamoRepositoryTest.shouldFindVideoById.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DynamoRepositoryTest.shouldThrowExceptionWhenScanFailsOnFindById.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DynamoRepositoryTest.shouldThrowExceptionWhenScanFailsOnFindByVideoKey.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ExceptionUtilsTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.ExceptionUtilsTest.shouldCreateApiExceptionWithGivenParams.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.FramesControllerFunctionalTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.FramesControllerFunctionalTest.shouldDownloadZipSuccessfully.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.FramesControllerFunctionalTest.shouldGenerateDownloadUrlWithoutJwt.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.FramesDownloadServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.FramesDownloadServiceTest.shouldDownloadZipWhenVideoExists.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.FramesDownloadServiceTest.shouldReturnPresignedUrlWhenUserIsOwner.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GlobalExceptionHandlerTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.GlobalExceptionHandlerTest.shouldHandleApiException.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HealthControllerFunctionalTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HealthControllerFunctionalTest.healthCheck.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MockRepositoryTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MockRepositoryTest.shouldFindById.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.NotificationImplTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ProductControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ProductControllerTest.shouldReturnProductsFilteredByCategory.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ProductConverterTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ProductFunctionalTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ProductFunctionalTest.shouldCreateProduct.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ProductFunctionalTest.shouldListAllProducts.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ProductFunctionalTest.shouldListAllProductsByCategory.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ProductServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.S3FileStorageAdapterTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VideoControllerConverterTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VideoControllerFunctionalTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VideoControllerFunctionalTest.shouldReturnBadRequestWhenFileIsMissing.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VideoControllerFunctionalTest.shouldReturnInternalServerErrorWhenServiceThrowsException.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VideoControllerFunctionalTest.shouldReturnVideosList.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VideoControllerFunctionalTest.shouldUploadVideoSuccessfully.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VideoPostingServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VideoPostingServiceTest.shouldSendCorrectNotificationPayload.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VideoPostingServiceTest.shouldSendNotificationAfterSuccessfulUpload.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VideoPostingServiceTest.shouldThrowExceptionWhenFileSizeExceedsLimit.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.java in catalog-service.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.java in demo.executor&quot;: &quot;Run&quot;,
+    &quot;Makefile Target.run-dev.executor&quot;: &quot;Run&quot;,
+    &quot;Makefile Target.run.executor&quot;: &quot;Run&quot;,
+    &quot;Makefile Target.test.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/set-up&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/amanda/Documentos/fase-05-hackaton/fase5-video-notification-worker/pom.xml&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/com/example/demo/shared" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/example/demo/shared/exceptions" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/test/resources/db/migration" />
+      <recent name="$PROJECT_DIR$/src/main/resources/db/migrations/postgres" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.example.demo.adapters.inbound" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.example.demo.adapters.outbound.notification_queue" />
+      <recent name="com.example.demo.adapters.converter" />
+      <recent name="com.example.demo.shared.exceptions" />
+      <recent name="com.example.demo.adapters.outbound.storage" />
+      <recent name="com.example.demo.adapters.outbound.repository" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.demo.stepdefs" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.java in demo">
+    <configuration name="FramesControllerFunctionalTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.demo.functional.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.demo.functional" />
+      <option name="MAIN_CLASS_NAME" value="com.example.demo.functional.FramesControllerFunctionalTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FramesControllerFunctionalTest.shouldGenerateDownloadUrlWithoutJwt" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.demo.functional.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.demo.functional" />
+      <option name="MAIN_CLASS_NAME" value="com.example.demo.functional.FramesControllerFunctionalTest" />
+      <option name="METHOD_NAME" value="shouldGenerateDownloadUrlWithoutJwt" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VideoPostingServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.demo.core.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.demo.core.services" />
+      <option name="MAIN_CLASS_NAME" value="com.example.demo.core.services.VideoPostingServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VideoPostingServiceTest.shouldSendCorrectNotificationPayload" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.demo.core.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.demo.core.services" />
+      <option name="MAIN_CLASS_NAME" value="com.example.demo.core.services.VideoPostingServiceTest" />
+      <option name="METHOD_NAME" value="shouldSendCorrectNotificationPayload" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="java in demo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="demo" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/src/test/java" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="fase4-catalog-service" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="fase4-catalog-service" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="fase4-catalog-service" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <module name="fase4-catalog-service" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docs" factoryName="Docutils task">
+      <module name="fase4-catalog-service" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="docutils_input_file" value="" />
+      <option name="docutils_output_file" value="" />
+      <option name="docutils_params" value="" />
+      <option name="docutils_task" value="" />
+      <option name="docutils_open_in_browser" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docs" factoryName="Sphinx task">
+      <module name="fase4-catalog-service" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="docutils_input_file" value="" />
+      <option name="docutils_output_file" value="" />
+      <option name="docutils_params" value="" />
+      <option name="docutils_task" value="" />
+      <option name="docutils_open_in_browser" value="false" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.java in demo" />
+        <item itemvalue="JUnit.FramesControllerFunctionalTest" />
+        <item itemvalue="JUnit.FramesControllerFunctionalTest.shouldGenerateDownloadUrlWithoutJwt" />
+        <item itemvalue="JUnit.VideoPostingServiceTest" />
+        <item itemvalue="JUnit.VideoPostingServiceTest.shouldSendCorrectNotificationPayload" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="58a3b2de-2d18-4415-87aa-23116fdcd0f6" name="Changes" comment="" />
+      <created>1765835721131</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1765835721131</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="JUnit">
+        <watch expression="products.get(0).category.products" />
+        <watch expression="((Video)((java.util.concurrent.ConcurrentHashMap.MapEntry)((java.util.concurrent.ConcurrentHashMap)((MockRepository)this).table).entrySet().toArray()[0]).getValue()).id" custom="com.example.demo.core.model.Video,java.util.concurrent.ConcurrentHashMap,java.util.concurrent.ConcurrentHashMap.MapEntry,com.example.demo.adapters.outbound.repository.MockRepository" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/fase5_video_processing_api$java_in_demo.ic" NAME="java in demo Coverage Results" MODIFIED="1770426089009" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/fase5_video_processing_api$VideoPostingServiceTest.ic" NAME="VideoPostingServiceTest Coverage Results" MODIFIED="1769368403629" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.example.demo.core.services.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/fase5_video_processing_api$FramesControllerFunctionalTest.ic" NAME="FramesControllerFunctionalTest Coverage Results" MODIFIED="1770426063087" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.example.demo.functional.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/fase4_catalog_service$java_in_demo.ic" NAME="java in demo Coverage Results" MODIFIED="1766101100151" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/fase5_video_processing_api$DynamoRepositoryTest.ic" NAME="DynamoRepositoryTest Coverage Results" MODIFIED="1769371497217" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.example.demo.adapters.outbound.repository.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/fase5_video_processing_api$FramesDownloadServiceTest.ic" NAME="FramesDownloadServiceTest Coverage Results" MODIFIED="1769368572284" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.example.demo.core.services.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/fase5_video_processing_api$ExceptionUtilsTest.ic" NAME="ExceptionUtilsTest Coverage Results" MODIFIED="1769374373548" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.example.demo.shared.exceptions.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/fase5_video_processing_api$MockRepositoryTest.ic" NAME="MockRepositoryTest Coverage Results" MODIFIED="1769372053475" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.example.demo.adapters.outbound.repository.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/fase5_video_processing_api$GlobalExceptionHandlerTest.ic" NAME="GlobalExceptionHandlerTest Coverage Results" MODIFIED="1769374132760" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.example.demo.shared.exceptions.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/fase5_video_processing_api$VideoControllerFunctionalTest.ic" NAME="VideoControllerFunctionalTest Coverage Results" MODIFIED="1769472550404" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.example.demo.functional.*</FILTER>
+    </SUITE>
+  </component>
+</project>

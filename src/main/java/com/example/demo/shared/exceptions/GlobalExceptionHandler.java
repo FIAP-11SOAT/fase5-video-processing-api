@@ -1,0 +1,159 @@
+package com.example.demo.shared.exceptions;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.authorization.AuthorizationDeniedException;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.multipart.MaxUploadSizeExceededException;
+import org.springframework.web.multipart.support.MissingServletRequestPartException;
+import org.springframework.web.servlet.NoHandlerFoundException;
+
+import java.time.OffsetDateTime;
+import java.util.Arrays;
+
+@RestControllerAdvice
+public class GlobalExceptionHandler {
+
+    @ExceptionHandler(APIException.class)
+    public ResponseEntity<ApiErrorResponse> handleApiException(
+            APIException ex
+    ) {
+
+        HttpStatus status = HttpStatus.valueOf(ex.getHttpStatus());
+
+        ApiErrorResponse response = ApiErrorResponse.builder()
+                .status(status.value())
+                .error(status.getReasonPhrase())
+                .message(ex.getErrorCodeMessage())
+                .errorCode(ex.getErrorCode())
+                .timestamp(OffsetDateTime.now())
+                .build();
+
+        return ResponseEntity.status(status).body(response);
+    }
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<ApiErrorResponse> handleMethodArgumentNotValid(
+            MethodArgumentNotValidException ex
+    ) {
+
+        String message = ex.getBindingResult()
+                .getFieldErrors()
+                .stream()
+                .map(error -> error.getField() + ": " + error.getDefaultMessage())
+                .findFirst()
+                .orElse("Invalid request body");
+
+        ApiErrorResponse response = ApiErrorResponse.builder()
+                .status(HttpStatus.BAD_REQUEST.value())
+                .error(HttpStatus.BAD_REQUEST.getReasonPhrase())
+                .message(message)
+                .errorCode(400)
+                .timestamp(OffsetDateTime.now())
+                .build();
+
+        return ResponseEntity.badRequest().body(response);
+    }
+
+    @ExceptionHandler(NoHandlerFoundException.class)
+    public ResponseEntity<ApiErrorResponse> handleNoHandlerFound(
+            NoHandlerFoundException ex
+    ) {
+
+        ApiErrorResponse response = ApiErrorResponse.builder()
+                .status(HttpStatus.NOT_FOUND.value())
+                .error(HttpStatus.NOT_FOUND.getReasonPhrase())
+                .message("Route not found")
+                .errorCode(404)
+                .timestamp(OffsetDateTime.now())
+                .build();
+
+        return ResponseEntity
+                .status(HttpStatus.NOT_FOUND)
+                .body(response);
+    }
+
+    @ExceptionHandler({
+            AuthenticationException.class,
+            AccessDeniedException.class,
+            AuthorizationDeniedException.class
+    })
+    public ResponseEntity<ApiErrorResponse> handleAuthenticationException(Exception ex) {
+        ErrorType errorType = ErrorType.UNAUTHORIZED;
+        HttpStatus status = HttpStatus.UNAUTHORIZED;
+
+        if (ex instanceof AccessDeniedException) {
+            errorType = ErrorType.FORBIDDEN;
+            status = HttpStatus.FORBIDDEN;
+        }
+
+        ApiErrorResponse response = ApiErrorResponse.builder()
+                .status(status.value())
+                .error(errorType.getMessage())
+                .message(ex.getMessage())
+                .errorCode(errorType.getCode())
+                .timestamp(OffsetDateTime.now())
+                .build();
+
+        return ResponseEntity.status(status).body(response);
+    }
+
+    @ExceptionHandler(MaxUploadSizeExceededException.class)
+    public ResponseEntity<ApiErrorResponse> handleMaxSize(MaxUploadSizeExceededException ex) {
+        ErrorType errorType = ErrorType.MAX_SIZE_EXCEEDED;
+        HttpStatus status = HttpStatus.BAD_REQUEST;
+
+        ApiErrorResponse response = ApiErrorResponse.builder()
+                .status(status.value())
+                .error(errorType.getMessage())
+                .message(ex.getMessage())
+                .errorCode(errorType.getCode())
+                .timestamp(OffsetDateTime.now())
+                .build();
+
+        return ResponseEntity.status(status).body(response);
+    }
+
+    @ExceptionHandler(MissingServletRequestPartException.class)
+    public ResponseEntity<ApiErrorResponse> handleMissingPart(
+            MissingServletRequestPartException ex) {
+
+        ApiErrorResponse response = ApiErrorResponse.builder()
+                .status(HttpStatus.BAD_REQUEST.value())
+                .error(HttpStatus.BAD_REQUEST.getReasonPhrase())
+                .message("Parte obrigatória não enviada: " + ex.getRequestPartName())
+                .errorCode(ErrorType.FILE_CANNOT_BE_EMPTY.getCode())
+                .timestamp(OffsetDateTime.now())
+                .build();
+
+        return ResponseEntity
+                .status(HttpStatus.BAD_REQUEST)
+                .body(response);
+    }
+
+
+    /**
+     * Fallback para erros não tratados
+     */
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<ApiErrorResponse> handleGenericException(Exception ex) {
+        System.out.println("\n [EXCEPTION] " + ex.getMessage());
+        System.out.println("\n [STACKTRACE] " + Arrays.stream(ex.getStackTrace()).map(StackTraceElement::toString));
+
+        ApiErrorResponse response = ApiErrorResponse.builder()
+                .status(HttpStatus.INTERNAL_SERVER_ERROR.value())
+                .error(HttpStatus.INTERNAL_SERVER_ERROR.getReasonPhrase())
+                .message("Unexpected internal error")
+                .errorCode(999)
+                .timestamp(OffsetDateTime.now())
+                .build();
+
+        return ResponseEntity
+                .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body(response);
+    }
+}
